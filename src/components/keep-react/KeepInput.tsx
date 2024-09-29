@@ -6,6 +6,7 @@ type KeepInputProps = React.ComponentProps<typeof Input> & {
   type?: string;
   className?: string;
   label?: string;
+  value?: string;
   onChange: (e: any) => void;
 };
 
@@ -13,6 +14,7 @@ const KeepInput: React.FC<KeepInputProps> = ({
   type = "text",
   className,
   label,
+  value,
   onChange,
   ...rest
 }) => {
@@ -29,7 +31,7 @@ const KeepInput: React.FC<KeepInputProps> = ({
             "border border-metal-300 text-base placeholder:text-metal-300",
             className
           )}
-          value={data && data}
+          value={value || data}
           onChange={(e) => {
             setData(e.target.value);
             onChange(e.target.value);

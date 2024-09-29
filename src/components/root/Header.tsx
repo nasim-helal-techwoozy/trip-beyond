@@ -3,7 +3,7 @@ import React from "react";
 import KeepModal from "../keep-react/KeepModal";
 import { Button } from "keep-react";
 import Logo from "../common/Logo";
-import { Icons } from "@/interfaces/icons";
+import { IconHomePage } from "@/interfaces/icons";
 
 const Header = () => {
   return (
@@ -50,7 +50,7 @@ const Header = () => {
       </KeepModal>
 
       <Button className="rounded-full">
-        <Icons.Phone size={20} />
+        <IconHomePage.Phone size={20} />
       </Button>
       {/* <MobileMenu /> */}
     </header>

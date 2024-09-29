@@ -1,14 +1,16 @@
+import KeepSlider from "@/components/keep-react/KeepSlider";
+import Deals from "@/components/root/content/Deals";
 import Footer from "@/components/root/footer/Footer";
 import Header from "@/components/root/Header";
-import { Button } from "keep-react";
+import { Button, CarouselItem } from "keep-react";
 
 export default function Home() {
   return (
     <section>
       <Header />
 
-      <main>
-        <div className="text-center">
+      <main className="px-10">
+        <div className="text-center py-5">
           <p>
             Unlock the extraordinary with Trip Beyond, your passport to
             unparalleled adventures. From secluded beaches to majestic peaks,
@@ -19,6 +21,8 @@ export default function Home() {
           </p>
           <Button variant="link">Read More</Button>
         </div>
+
+        <Deals />
       </main>
 
       <Footer />

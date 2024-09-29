@@ -1,10 +1,8 @@
-"use client";
-
 import { nanoid } from "nanoid";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Icons } from "@/interfaces/icons";
+import { IconFooter } from "@/interfaces/icons";
 import { images } from "@/interfaces/images";
 import { cn } from "keep-react/utils";
 import Logo from "../../common/Logo";
@@ -41,7 +39,7 @@ const services: PropsTypes[] = [
 
 const Footer = () => {
   return (
-    <footer className="grid grid-cols-6 gap-2 px-10 bg-metal-800">
+    <footer className="grid grid-cols-6 gap-2 px-10 bg-metal-800 py-7">
       <Logo />
 
       <LinkMapper title="Company" links={companies} />
@@ -53,7 +51,7 @@ const Footer = () => {
         <Image src={images.footerPayment} alt="payment" />
       </LinkMapper>
 
-      <LinkMapper className="col-span-2 gap-3" title="Connect with Us">
+      <LinkMapper className="col-span-2 gap-3 ml-3" title="Connect with Us">
         <SocialLinks />
         <NewsLetter />
       </LinkMapper>
@@ -91,11 +89,11 @@ interface Social {
 }
 
 const socials: Social[] = [
-  { Icon: Icons.FacebookLogo, link: "https://www.facebook.com/tripbeyond" },
-  { Icon: Icons.TwitterLogo, link: "https://www.x.com/tripbeyond" },
-  { Icon: Icons.InstagramLogo, link: "https://www.instagram.com/tripbeyond" },
-  { Icon: Icons.LinkedinLogo, link: "https://www.linkedin.com/in/tripbeyond" },
-  { Icon: Icons.YoutubeLogo, link: "https://www.youtube.com/tripbeyond" },
+  { Icon: IconFooter.facebook, link: "https://www.facebook.com/tripbeyond" },
+  { Icon: IconFooter.twitter, link: "https://www.x.com/tripbeyond" },
+  { Icon: IconFooter.instagram, link: "https://www.instagram.com/tripbeyond" },
+  { Icon: IconFooter.linkedin, link: "https://www.linkedin.com/in/tripbeyond" },
+  { Icon: IconFooter.youtube, link: "https://www.youtube.com/tripbeyond" },
 ];
 
 const SocialLinks = () => {

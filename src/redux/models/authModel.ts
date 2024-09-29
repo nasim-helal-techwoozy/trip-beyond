@@ -1,7 +1,7 @@
 import { tripbeyond } from "@/utils/axios/tripbeyond";
 import { action, thunk, Action, Thunk } from "easy-peasy";
-import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+import { toast } from "keep-react";
 
 // Define types for the model
 interface AuthState {
