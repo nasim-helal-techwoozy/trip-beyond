@@ -8,7 +8,7 @@ import Select from "react-select";
 const customStyles = {
   control: (provided: any) => ({
     ...provided,
-    width: "250px",
+    width: "100%",
     height: "60px",
     boxShadow: "none",
     "&:hover": {

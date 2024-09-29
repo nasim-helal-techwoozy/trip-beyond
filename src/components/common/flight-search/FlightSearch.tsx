@@ -1,31 +1,25 @@
 "use client";
-
+import { defaultAirports, restAirports } from "@/assets/data/airports";
 import { IconSearchEngine } from "@/interfaces/icons";
-import React, { useState, useEffect } from "react";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import { Button } from "keep-react";
+import { useEffect, useState } from "react";
 import FlightInput from "./FlightInput";
-import {
-  defaultAirports,
-  restAirports,
-  defaultOriginAirport,
-  defaultDestinationAirport,
-} from "@/assets/data/airports";
-interface PropsTypes {
-  onOriginChange: (origin: string) => void;
-  onDestinationChange: (destination: string) => void;
-}
+import PickDate from "./PickDate";
 
-const FlightInputsSearch: React.FC<PropsTypes> = ({
-  onOriginChange,
-  onDestinationChange,
-}) => {
-  const [origin, setOrigin] = useState(defaultOriginAirport);
-  const [destination, setDestination] = useState(defaultDestinationAirport);
+const FlightSearch = () => {
+  const { setOrigin, setDestination, setDepartureDate, setReturnDate } =
+    useStoreActions((actions: any) => actions.flightSearch);
+  const { origin, destination, departureDate, returnDate } = useStoreState(
+    (state: any) => state.flightSearch
+  );
+
   const [originSearchKey, setOriginSearchKey] = useState("");
   const [destinationSearchKey, setDestinationSearchKey] = useState("");
 
   const [originAirportLists, setOriginAirportLists] = useState<any>([]);
   const [destinationAirportLists, setDestinationAirportLists] = useState<any>(
-    [],
+    []
   );
 
   const [restOriginAirportLists, setRestOriginAirportLists] = useState<any>([]);
@@ -35,25 +29,25 @@ const FlightInputsSearch: React.FC<PropsTypes> = ({
   useEffect(() => {
     /**====================ORIGIN AIRPORT LIST======================== */
     const filteredOriginLists = defaultAirports.filter(
-      (item) => item.value !== destination.value, // Exclude the selected destination
+      (item) => item.value !== destination.value // Exclude the selected destination
     );
     setOriginAirportLists(filteredOriginLists);
 
     //rest
     const filteredRestOriginLists = restAirports.filter(
-      (item) => item.value !== destination.value, // Exclude the selected destination
+      (item) => item.value !== destination.value // Exclude the selected destination
     );
     setRestOriginAirportLists(filteredRestOriginLists);
 
     /**====================DESTINATION AIRPORT LIST=================== */
     const filteredDestinationLists = defaultAirports.filter(
-      (item) => item.value !== origin.value, // Exclude the selected origin
+      (item) => item.value !== origin.value // Exclude the selected origin
     );
 
     setDestinationAirportLists(filteredDestinationLists);
     //rest
     const filteredRestDestinationLists = restAirports.filter(
-      (item) => item.value !== origin.value, // Exclude the selected destination
+      (item) => item.value !== origin.value // Exclude the selected destination
     );
     setRestDestinationAirportLists(filteredRestDestinationLists);
     /**===============ORIGIN SEARCH KEY========================== */
@@ -93,7 +87,7 @@ const FlightInputsSearch: React.FC<PropsTypes> = ({
             label?.startsWith(destinationSearchKey) ||
             value?.startsWith(destinationSearchKey)
           );
-        },
+        }
       );
       setDestinationAirportLists(newDestinationLists);
 
@@ -113,7 +107,7 @@ const FlightInputsSearch: React.FC<PropsTypes> = ({
   }, [origin, destination, originSearchKey, destinationSearchKey]);
 
   return (
-    <div className="relative flex items-center gap-5">
+    <div className="grid grid-cols-4 gap-5">
       <FlightInput
         label="From"
         id="from"
@@ -126,17 +120,17 @@ const FlightInputsSearch: React.FC<PropsTypes> = ({
         }}
         onChange={(option: any) => {
           setOrigin(option);
-          onOriginChange(option.value);
         }}
       />
-
-      <SwapBtn
+      <Button
+        className="absolute left-1/4 -translate-x-[65%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-white"
         onClick={() => {
           setDestination(origin);
           setOrigin(destination);
         }}
-      />
-
+      >
+        <IconSearchEngine.Swap className="text-xl" />
+      </Button>
       <FlightInput
         label="To"
         id="to"
@@ -151,24 +145,16 @@ const FlightInputsSearch: React.FC<PropsTypes> = ({
         }}
         onChange={(option: any) => {
           setDestination(option);
-          onDestinationChange(option.value);
         }}
       />
+
+      <PickDate
+        date={departureDate}
+        setDate={setDepartureDate}
+        label="Departure"
+      />
+      <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
     </div>
   );
 };
-
-export default FlightInputsSearch;
-
-/** ======================SWAP BUTTON================== */
-
-const SwapBtn = ({ onClick }: { onClick: () => void }) => {
-  return (
-    <button
-      className="absolute left-[50%] top-[45%] z-1 -translate-x-[50%] rounded-full bg-slate-300 p-1.5"
-      onClick={onClick}
-    >
-      <IconSearchEngine.Swap className="text-xl" />
-    </button>
-  );
-};
+export default FlightSearch;
