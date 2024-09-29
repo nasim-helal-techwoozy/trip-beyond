@@ -3,7 +3,6 @@ import {
   CarouselButtons,
   CarouselControl,
   CarouselIndicators,
-  CarouselItem,
   CarouselNextButton,
   CarouselPrevButton,
   CarouselSlides,
@@ -15,7 +14,7 @@ interface PropsTypes {
 
 const KeepSlider: React.FC<PropsTypes> = ({ children }) => {
   return (
-    <Carousel options={{ loop: true }}>
+    <Carousel options={{ loop: true, slidesToScroll: 2 }}>
       <CarouselSlides>{children}</CarouselSlides>
       <CarouselControl>
         <CarouselButtons>
