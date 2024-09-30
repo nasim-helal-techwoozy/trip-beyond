@@ -37,6 +37,7 @@ export const CancelledBookingData: CancelledBookingInterface[] = [
         action: "VB RS",
     },
 ];
+
 const CancelledBooking = () => {
     const CancelledBookingFields: string[] = [
         'Booking Date',
