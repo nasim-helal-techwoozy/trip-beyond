@@ -37,7 +37,8 @@ export const CancelledBookingData: CancelledBookingInterface[] = [
         action: "VB RS",
     },
 ];
-const CancelledBooking = () => {
+
+const CanceledBooking = () => {
     const CancelledBookingFields: string[] = [
         'Booking Date',
         'Booking ID',
@@ -50,12 +51,14 @@ const CancelledBooking = () => {
         'Action',
     ];
     return (
-        <KeepTable
-            tableTitle="Booking Cancelled"
-            headerItems={CancelledBookingFields}
-            data={CancelledBookingData}
-        />
+        <div className="mx-5">
+            <KeepTable
+                tableTitle="Cancelled Bookings"
+                headerItems={CancelledBookingFields}
+                data={CancelledBookingData}
+            />
+        </div>
     )
 }
 
-export default CancelledBooking
+export default CanceledBooking

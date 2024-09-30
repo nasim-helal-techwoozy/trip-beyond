@@ -1,8 +1,7 @@
-import FlightIssued from '@/components/tb-b2b/booking-history/flight/Issued.tsx/FlightIssued'
-import React from 'react'
+import Issued from '@/components/tb-b2b/booking-history/flight/Issued.tsx/Issued'
 
 const page = () => {
-    return <FlightIssued />
+    return <Issued />
 }
 
 export default page

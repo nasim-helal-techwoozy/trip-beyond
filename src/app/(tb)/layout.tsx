@@ -1,5 +1,6 @@
 import Logo from "@/components/common/Logo";
-import Header from "@/components/tb-b2b/Header/Header";
+import Header from "@/components/tb-b2b/header/Header";
+
 import SidebarCollapse from "@/components/tb-b2b/sidebar/SidebarCollapse";
 import SidebarExpand from "@/components/tb-b2b/sidebar/SidebarExpand";
 

@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/themes/theme-provider";
 import { ToastWrapper } from "keep-react";
 import ProvideStore from "@/redux/ProvideStore";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata: Metadata = {
   title: "Trip Beyond",
