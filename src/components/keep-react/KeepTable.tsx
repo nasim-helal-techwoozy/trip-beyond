@@ -9,7 +9,6 @@ import {
   DropdownList,
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -29,7 +28,7 @@ export const KeepTable: React.FC<PropsTypes> = ({
 }) => {
   return (
     <>
-      <TableCaption className="flex items-center gap-2 ">
+      <div className="flex items-center gap-2 py-5">
         <h2 className="text-heading-6 font-semibold text-metal-900 dark:text-white">
           {tableTitle}
         </h2>
@@ -47,7 +46,7 @@ export const KeepTable: React.FC<PropsTypes> = ({
           <Funnel className="size-4 fill-metal-900 dark:fill-white mr-2" />
           Filter Data
         </Button>
-      </TableCaption>
+      </div>
 
       <Table className="table-auto rounded-none">
         <TableHeader>
