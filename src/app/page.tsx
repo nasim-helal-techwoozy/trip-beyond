@@ -1,8 +1,11 @@
-import KeepSlider from "@/components/keep-react/KeepSlider";
 import Deals from "@/components/root/content/Deals";
+import Destination from "@/components/root/content/Destination";
+import Exclusive from "@/components/root/content/Exclusive";
+import Featured from "@/components/root/content/Featured";
+import QrCodeBanner from "@/components/root/content/QrCodeBanner";
 import Footer from "@/components/root/footer/Footer";
 import Header from "@/components/root/Header";
-import { Button, CarouselItem } from "keep-react";
+import { Button } from "keep-react";
 
 export default function Home() {
   return (
@@ -23,6 +26,10 @@ export default function Home() {
         </div>
 
         <Deals />
+        <Exclusive />
+        <Destination />
+        <QrCodeBanner />
+        <Featured />
       </main>
 
       <Footer />

@@ -90,11 +90,14 @@ const OnHold = () => {
         'Action',
     ];
     return (
-        <KeepTable
-            tableTitle="On Hold"
-            headerItems={OnHoldFields}
-            data={OnHoldData}
-        />
+        <div className="mx-5">
+            <KeepTable
+                tableTitle="On Hold"
+                headerItems={OnHoldFields}
+                data={OnHoldData}
+            />
+        </div>
+
     );
 };
 

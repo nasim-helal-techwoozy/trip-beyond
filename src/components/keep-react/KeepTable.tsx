@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 import {
     Badge,
     Button,
@@ -10,26 +9,29 @@ import {
     DropdownList,
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
     TableRow,
-} from 'keep-react'
-import { nanoid } from 'nanoid'
-import { DotsThreeOutlineVertical, Funnel, Plus } from 'phosphor-react'
+} from "keep-react";
+import { nanoid } from "nanoid";
+import { DotsThreeOutlineVertical, Funnel, Plus } from "phosphor-react";
 interface PropsTypes {
     tableTitle: string;
     headerItems: string[];
     data: any;
 }
-export const KeepTable: React.FC<PropsTypes> = ({ tableTitle, headerItems, data }) => {
+export const KeepTable: React.FC<PropsTypes> = ({
+    tableTitle,
+    headerItems,
+    data,
+}) => {
     return (
-        <>
-
-            <TableCaption className="flex items-center gap-2 ">
-
-                <h2 className="text-heading-6 font-semibold text-metal-900 dark:text-white">{tableTitle}</h2>
+        <div>
+            <div className="flex items-center gap-2 py-5">
+                <h2 className="text-heading-6 font-semibold text-metal-900 dark:text-white">
+                    {tableTitle}
+                </h2>
                 <Badge className="dark:bg-metal-800 dark:text-white">
                     {data.length}
                 </Badge>
@@ -41,17 +43,16 @@ export const KeepTable: React.FC<PropsTypes> = ({ tableTitle, headerItems, data 
                     <Funnel className="size-4 fill-metal-900 dark:fill-white mr-2" />
                     Filter Data
                 </Button>
-
-            </TableCaption>
+            </div>
 
             <Table className="table-auto rounded-none">
-
                 <TableHeader>
                     <TableRow>
-                        {headerItems.map((item: string) =>
+                        {headerItems.map((item: string) => (
                             <TableHead key={nanoid()}>
                                 <div className="w-[110px]">{item}</div>
-                            </TableHead>)}
+                            </TableHead>
+                        ))}
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -79,9 +80,7 @@ export const KeepTable: React.FC<PropsTypes> = ({ tableTitle, headerItems, data 
                         </TableRow>
                     ))}
                 </TableBody>
-
-            </Table></>
-
-    )
-}
-
+            </Table>
+        </div>
+    );
+};

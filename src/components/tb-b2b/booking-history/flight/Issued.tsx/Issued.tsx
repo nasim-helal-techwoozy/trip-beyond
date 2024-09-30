@@ -45,7 +45,7 @@ const FlightIssuedData: FlightIssuedInterface[] = [
 ];
 
 
-const FlightIssued = () => {
+const Issued = () => {
     const FlightIssuedFields: string[] = [
         'Issue Date',
         'Booking Date',
@@ -60,12 +60,15 @@ const FlightIssued = () => {
         'Action',
     ];
     return (
-        <KeepTable
-            tableTitle="Ticketed"
-            headerItems={FlightIssuedFields}
-            data={FlightIssuedData}
-        />
+        <div className="mx-5">
+            <KeepTable
+                tableTitle="Flight Issued"
+                headerItems={FlightIssuedFields}
+                data={FlightIssuedData}
+            />
+        </div>
+
     )
 }
 
-export default FlightIssued
+export default Issued

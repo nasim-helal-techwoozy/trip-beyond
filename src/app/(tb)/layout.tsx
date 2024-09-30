@@ -1,5 +1,5 @@
 import Logo from "@/components/common/Logo";
-import Header from "@/components/tb-b2b/Header/Header";
+import Header from "@/components/tb-b2b/header/Header";
 import Sidebar from "@/components/tb-b2b/sidebar/Sidebar";
 
 export default function DefaultLayout({
