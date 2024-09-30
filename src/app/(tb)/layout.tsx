@@ -1,6 +1,7 @@
 import Logo from "@/components/common/Logo";
 import Header from "@/components/tb-b2b/Header/Header";
-import Sidebar from "@/components/tb-b2b/sidebar/Sidebar";
+import SidebarCollapse from "@/components/tb-b2b/sidebar/SidebarCollapse";
+import SidebarExpand from "@/components/tb-b2b/sidebar/SidebarExpand";
 
 export default function DefaultLayout({
   children,
@@ -8,11 +9,20 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="grid grid-cols-10 grid-rows-[85px_auto] h-screen ">
-      <Logo className="col-span-2 flex items-center justify-center bg-metal-800" />
-      <Header className="col-span-8" />
-      <Sidebar className="col-span-2" />
-      <main className="col-span-8 bg-gray-200 overflow-y-auto">{children}</main>
+    <section className="grid grid-rows-[80px_1fr] grid-cols-[100px_1fr] h-screen duration-500">
+      <div className="flex items-center h-full col-span-2">
+        <Logo className="min-w-[280px] h-full flex items-center justify-center bg-metal-800" />
+        <Header />
+      </div>
+
+      <div className="relative group col-span-1 z-10 min-w-[100px] hover:min-w-[280px] duration-300 overflow-x-hidden overflow-y-auto bg-white min-h-full shadow-xl">
+        <SidebarCollapse className="group-hover:hidden duration-75" />
+        <SidebarExpand className="hidden group-hover:block duration-75" />
+      </div>
+
+      <main className="bg-gray-200 col-span-1 h-full overflow-y-auto">
+        {children}
+      </main>
     </section>
   );
 }
