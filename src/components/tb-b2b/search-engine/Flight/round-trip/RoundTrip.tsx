@@ -1,7 +1,7 @@
-import React from "react";
+import FlightSearch from "@/components/common/flight-search/FlightSearch";
 
 const RoundTrip = () => {
-  return <div>RoundTrip</div>;
+  return <FlightSearch />;
 };
 
 export default RoundTrip;

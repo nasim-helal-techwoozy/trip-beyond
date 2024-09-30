@@ -23,7 +23,7 @@ const tabs: MenuItem[] = [
   { label: "Group Request", value: "group-request", icon: <FaUserGroup /> },
 ];
 
-const SearchEngine: React.FC = () => {
+const Search: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center seBanner p-10">
       <Tabs defaultActive="flights" className="mx-auto w-full">
@@ -62,4 +62,4 @@ const SearchEngine: React.FC = () => {
   );
 };
 
-export default SearchEngine;
+export default Search;

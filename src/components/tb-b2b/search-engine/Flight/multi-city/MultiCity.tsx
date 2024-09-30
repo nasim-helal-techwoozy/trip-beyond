@@ -1,7 +1,7 @@
-import React from "react";
+import FlightSearch from "@/components/common/flight-search/FlightSearch";
 
 const MultiCity = () => {
-  return <div>MultiCity</div>;
+  return <FlightSearch />;
 };
 
 export default MultiCity;

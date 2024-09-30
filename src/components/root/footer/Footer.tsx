@@ -39,7 +39,7 @@ const services: PropsTypes[] = [
 
 const Footer = () => {
   return (
-    <footer className="grid grid-cols-6 gap-2 px-10 bg-metal-800 py-7">
+    <footer className="grid grid-cols-6 gap-2 px-10 bg-metal-800 text-white py-7">
       <Logo />
 
       <LinkMapper title="Company" links={companies} />

@@ -1,7 +1,7 @@
-import React from "react";
+import FlightSearch from "@/components/common/flight-search/FlightSearch";
 
 const Umrah = () => {
-  return <div>Umrah</div>;
+  return <FlightSearch />;
 };
 
 export default Umrah;

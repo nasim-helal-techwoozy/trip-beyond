@@ -1,34 +1,33 @@
-import React from "react";
 import {
   Avatar,
   AvatarImage,
   Button,
-  Popover,
-  PopoverAction,
-  PopoverContent,
-  PopoverDescription,
-  PopoverHeading,
+  Dropdown,
+  DropdownAction,
+  DropdownContent,
 } from "keep-react";
 
 const Profile = () => {
   return (
-    <Popover placement="bottom">
-      <PopoverAction className="!bg-transparent px-0           ">
-        ffg
-      </PopoverAction>
-      <PopoverContent className="z-20 flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-metal-900">
+    <Dropdown>
+      <DropdownAction className="!bg-transparent px-0">
+        <Avatar>
+          <AvatarImage src={""} />
+        </Avatar>
+      </DropdownAction>
+      <DropdownContent>
         <div>
           <Avatar>
             <AvatarImage src={""} />
           </Avatar>
         </div>
         <div>
-          <PopoverHeading>Keep Designer</PopoverHeading>
-          <PopoverDescription>keepdesign@email.com</PopoverDescription>
+          <h1>Keep Designer</h1>
+          <p>keepdesign@email.com</p>
         </div>
         <Button variant="outline">Follow</Button>
-      </PopoverContent>
-    </Popover>
+      </DropdownContent>
+    </Dropdown>
   );
 };
 
