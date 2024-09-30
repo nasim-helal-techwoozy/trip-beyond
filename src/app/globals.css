@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*::selection {
+  background-color: #f6931d;
+  color: white;
+}
 .seBanner {
   background-image: url("../assets/images/banner/banner.webp");
   background-attachment: fixed;
@@ -20,8 +24,9 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
+
 /* silk-carousel arrow color change */
 .slick-prev:before,
 .slick-next:before {
-  color: #090758 !important;
+  color: #f6931d !important;
 }
