@@ -4,6 +4,7 @@ import {
   SidebarDropdownList,
   SidebarItem,
 } from "keep-react";
+import Link from "next/link";
 import {
   Airplane,
   ArrowClockwise,
@@ -45,10 +46,20 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">On-Hold</SidebarItem>
-                <SidebarItem className="justify-start">Issued</SidebarItem>
                 <SidebarItem className="justify-start">
-                  Canceled Booking
+                  <Link href="/booking-history/flight/on-hold">
+                    <span> On-Hold</span>
+                  </Link>
+                </SidebarItem>
+                <SidebarItem className="justify-start">
+                  <Link href="/booking-history/flight/issued">
+                    <span>Issued</span>
+                  </Link>
+                </SidebarItem>
+                <SidebarItem className="justify-start">
+                  <Link href="/booking-history/flight/canceled-booking">
+                    <span>Canceled Booking</span>
+                  </Link>
                 </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
@@ -65,7 +76,11 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">History</SidebarItem>
+                <SidebarItem className="justify-start">
+                  <Link href="/booking-history/void/history">
+                    <span>History</span>
+                  </Link>
+                </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
@@ -81,7 +96,11 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">History</SidebarItem>
+                <SidebarItem className="justify-start">
+                  <Link href="/booking-history/refund/history">
+                    <span>History</span>
+                  </Link>
+                </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
@@ -97,25 +116,37 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">History</SidebarItem>
+                <SidebarItem className="justify-start">
+                  <Link href="/booking-history/reissue/history">
+                    <span>History</span>
+                  </Link>
+                </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
           <SidebarItem>
             <HourglassMedium size={25} />
-            Hotel
+            <Link href="/booking-history/hotel">
+              <span>Hotel</span>
+            </Link>
           </SidebarItem>
           <SidebarItem>
             <CreditCard size={25} />
-            Visa
+            <Link href="/booking-history/visa">
+              <span>Visa</span>
+            </Link>
           </SidebarItem>
           <SidebarItem>
             <MapPin size={25} />
-            Tour Package
+            <Link href="/booking-history/tour-package">
+              <span>Tour Package</span>
+            </Link>
           </SidebarItem>
           <SidebarItem>
             <Users size={25} />
-            Group tour
+            <Link href="/booking-history/group-tour">
+              <span>Group tour</span>
+            </Link>
           </SidebarItem>
         </SidebarDropdownList>
       </SidebarDropdown>
