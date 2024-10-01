@@ -28,7 +28,7 @@ export const KeepTable: React.FC<PropsTypes> = ({
 }) => {
   return (
     <>
-      <div className="flex items-center gap-2 py-5">
+      <div className="flex items-center gap-2 px-1 py-5">
         <h2 className="text-heading-6 font-semibold text-metal-900 dark:text-white">
           {tableTitle}
         </h2>
