@@ -38,23 +38,24 @@ const SidebarExpand = ({ className }: any) => {
 
           <Passengers />
 
+          <SidebarItem>
+            <CreditCard size={25} />
+            Payment
+          </SidebarItem>
+
           <PartialPayment />
-
-          <Support />
-
-          <Profile />
-
-          <Settings />
-
           <SidebarItem>
             <ClockCounterClockwise size={25} />
             Transaction history
           </SidebarItem>
 
-          <SidebarItem>
-            <CreditCard size={25} />
-            Payment
-          </SidebarItem>
+
+          <Profile />
+
+          <Settings />
+
+          <Support />
+          
         </SidebarList>
       </SidebarBody>
     </Sidebar>

@@ -1,12 +1,10 @@
-import ProvideStore from "@/redux/ProvideStore";
+import type { Metadata } from "next";
+import "./globals.css";
 import { ThemeProvider } from "@/themes/theme-provider";
 import { ToastWrapper } from "keep-react";
-import type { Metadata } from "next";
-import "slick-carousel/slick/slick-theme.css";
+import ProvideStore from "@/redux/ProvideStore";
 import "slick-carousel/slick/slick.css";
-import "./globals.css";
-import Header from "@/components/root/Header/Header";
-import Footer from "@/components/root/footer/Footer";
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata: Metadata = {
   title: "Trip Beyond",
@@ -27,13 +25,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ProvideStore>
-            <main>
-              <Header />
-              {children}
-              <Footer />
-            </main>
-          </ProvideStore>
+          <main>
+            <ProvideStore>{children}</ProvideStore>
+          </main>
           <ToastWrapper
             toastOptions={{
               classNames: {
