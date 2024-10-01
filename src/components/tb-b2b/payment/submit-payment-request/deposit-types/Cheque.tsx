@@ -8,14 +8,15 @@ import { FaFileUpload } from "react-icons/fa";
 import Select from "react-select";
 
 const Cheque = () => {
-
-    const [bankAccount, setBankAccount] = useState<{ value: string; label: string } | null>(null);
+    const [bankAccount, setBankAccount] = useState<{
+        value: string;
+        label: string;
+    } | null>(null);
     const [depositDate, setDepositDate] = useState(new Date());
     const [reference, setReference] = useState("");
     const [amount, setAmount] = useState("");
     const [chequeNo, setChequeNo] = useState("");
     const [chequeBank, setChequeBank] = useState("");
-
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,21 +24,30 @@ const Cheque = () => {
     };
     // Options for bank accounts
     const bankAccountOptions = [
-        { value: "147-110-0024729", label: "Dutch Bangla Bank Ltd., Bashundhara, Dhaka" },
-        { value: "1403664894001", label: "The City Bank Ltd., Gulshan Avenue, Dhaka" },
+        {
+            value: "147-110-0024729",
+            label: "Dutch Bangla Bank Ltd., Bashundhara, Dhaka",
+        },
+        {
+            value: "1403664894001",
+            label: "The City Bank Ltd., Gulshan Avenue, Dhaka",
+        },
         { value: "2055206120001", label: "BRAC Bank, Natunbazar Branch" },
         { value: "0901101000002246", label: "UCBL Bank, Banani Branch" },
         { value: "3311901025114", label: "Pubali Bank PLC, Banani Branch" },
-        { value: "01-4976936-01", label: "Standard Chartered Bank, Gulshan" }
+        { value: "01-4976936-01", label: "Standard Chartered Bank, Gulshan" },
     ];
 
     return (
-
-        <form onSubmit={handleFormSubmit} className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            {/* TripBeyond Bank A/C */}
-            {/* Reference */}
+        <form
+            onSubmit={handleFormSubmit}
+            className="grid grid-cols-1 gap-4 lg:grid-cols-2"
+        >
             <div className="flex flex-col">
-                <label htmlFor="reference" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="reference"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     Cheque No*
                 </label>
                 <KeepInput
@@ -49,9 +59,11 @@ const Cheque = () => {
                     placeholder="Enter reference number"
                 />
             </div>
-            {/* Reference */}
             <div className="flex flex-col">
-                <label htmlFor="reference" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="reference"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     Cheque Bank*
                 </label>
                 <KeepInput
@@ -65,7 +77,10 @@ const Cheque = () => {
             </div>
 
             <div className="flex flex-col">
-                <label htmlFor="bankAccount" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="bankAccount"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     TripBeyond Bank A/C*
                 </label>
                 <Select
@@ -77,17 +92,21 @@ const Cheque = () => {
                 />
             </div>
 
-            {/* Deposited Date */}
             <div className="flex flex-col">
-                <label htmlFor="depositDate" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="depositDate"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     Deposited Date*
                 </label>
                 <DateInput date={depositDate} setDate={setDepositDate} />
             </div>
 
-            {/* Reference */}
             <div className="flex flex-col">
-                <label htmlFor="reference" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="reference"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     Reference*
                 </label>
                 <KeepInput
@@ -100,9 +119,11 @@ const Cheque = () => {
                 />
             </div>
 
-            {/* Amount */}
             <div className="flex flex-col">
-                <label htmlFor="amount" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="amount"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     Amount*
                 </label>
                 <KeepInput
@@ -116,16 +137,17 @@ const Cheque = () => {
             </div>
 
             <div className="flex flex-col">
-                <label htmlFor="amount" className="text-gray-600 mb-2 text-sm font-semibold">
+                <label
+                    htmlFor="amount"
+                    className="text-gray-600 mb-2 text-sm font-semibold"
+                >
                     Attachment*
                 </label>
                 <UploadFile />
             </div>
 
-            {/* Empty placeholder to balance the grid */}
             <div className="lg:col-span-2"></div>
 
-            {/* Submit Button */}
             <div className="lg:col-span-1">
                 <Button
                     type="submit"
