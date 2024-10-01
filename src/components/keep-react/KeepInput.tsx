@@ -20,41 +20,31 @@ const KeepInput: React.FC<KeepInputProps> = ({
 }) => {
   const [data, setData] = useState("");
 
+  const input = (
+    <Input
+      type={type}
+      {...rest}
+      className={cn(
+        "border dark:border-metal-50 border-metal-300 text-base placeholder:text-metal-300",
+        className
+      )}
+      value={value ?? data}
+      onChange={(e) => {
+        setData(e.target.value);
+        onChange(e.target.value);
+      }}
+    />
+  );
+
   if (label) {
     return (
       <fieldset className="space-y-1">
-        <Label htmlFor="name">Enter Name</Label>
-        <Input
-          type={type}
-          {...rest}
-          className={cn(
-            "border border-metal-300 text-base placeholder:text-metal-300",
-            className
-          )}
-          value={value || data}
-          onChange={(e) => {
-            setData(e.target.value);
-            onChange(e.target.value);
-          }}
-        />
+        <Label htmlFor="name">{label}</Label>
+        {input}
       </fieldset>
     );
   } else {
-    return (
-      <Input
-        type={type}
-        {...rest}
-        className={cn(
-          "border border-metal-300 text-base placeholder:text-metal-300",
-          className
-        )}
-        value={data && data}
-        onChange={(e) => {
-          setData(e.target.value);
-          onChange(e.target.value);
-        }}
-      />
-    );
+    return input;
   }
 };
 

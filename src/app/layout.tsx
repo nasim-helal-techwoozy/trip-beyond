@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./globals.css";
+import Header from "@/components/root/Header/Header";
+import Footer from "@/components/root/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Trip Beyond",
@@ -25,9 +27,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main>
-            <ProvideStore>{children}</ProvideStore>
-          </main>
+          <ProvideStore>
+            <main>
+              <Header />
+              {children}
+              <Footer />
+            </main>
+          </ProvideStore>
           <ToastWrapper
             toastOptions={{
               classNames: {

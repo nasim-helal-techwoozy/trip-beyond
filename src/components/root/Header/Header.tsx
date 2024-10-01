@@ -1,11 +1,14 @@
 "use client";
-import React from "react";
-import KeepModal from "../keep-react/KeepModal";
-import { Button } from "keep-react";
-import Logo from "../common/Logo";
 import { IconHomePage } from "@/interfaces/icons";
+import { Button } from "keep-react";
+import { useRouter } from "next/navigation";
+import Logo from "../../common/Logo";
+import KeepModal from "../../keep-react/KeepModal";
+import { UserSignin } from "./UserSignin";
+import UserSignup from "./UserSignup";
 
 const Header = () => {
+  const router = useRouter();
   return (
     <header
       className={`px-10 sticky left-0 top-0 z-10 w-full bg-metal-800 flex items-center gap-3 py-4`}
@@ -19,11 +22,7 @@ const Header = () => {
           </Button>
         }
       >
-        fgfg
-        {/* <UserLogin
-            onOpenSignupModal={() => setIsUserSignupOpen(true)}
-            onCloseLoginModal={() => setIsUserLoginOpen(false)}
-          /> */}
+        <UserSignin />
       </KeepModal>
 
       <KeepModal
@@ -34,20 +33,16 @@ const Header = () => {
         }
         className="w-3/5"
       >
-        fgfg
-        {/* <UserSignup /> */}
+        <UserSignup />
       </KeepModal>
 
-      <KeepModal
-        modalOver={
-          <Button color="primary" className="rounded-full">
-            Agent Login
-          </Button>
-        }
+      <Button
+        color="primary"
+        className="rounded-full"
+        onClick={() => router.push("/agent/signin")}
       >
-        fgfg
-        {/* <AgentLogin /> */}
-      </KeepModal>
+        Agent Login
+      </Button>
 
       <Button className="rounded-full">
         <IconHomePage.Phone size={20} />
