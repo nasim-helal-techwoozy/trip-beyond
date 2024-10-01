@@ -30,3 +30,7 @@
 .slick-next:before {
   color: #f6931d !important;
 }
+
+.tb-sidebar {
+  min-height: 100% !important;
+}

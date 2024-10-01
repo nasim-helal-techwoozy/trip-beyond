@@ -11,7 +11,7 @@ const Profile = () => {
   return (
     <Dropdown>
       <DropdownAction className="!bg-transparent px-0">
-        <Avatar>
+        <Avatar className="dark:border-white">
           <AvatarImage src={""} />
         </Avatar>
       </DropdownAction>

@@ -1,4 +1,6 @@
 "use client";
+import KeepDescription from "@/components/keep-react/KeepDescription";
+import KeepHeading from "@/components/keep-react/KeepHeading";
 import { images } from "@/interfaces/images";
 import { Button } from "keep-react";
 import { nanoid } from "nanoid";
@@ -66,9 +68,9 @@ const Deals = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto mt-16 mb-8">
-      <h3 className="text-center font-normal text-lg sm:text-xl mb-6">
+      <KeepHeading level="secondary" className="text-center">
         Find Great Deals, Only for you
-      </h3>
+      </KeepHeading>
       <Slider {...settings}>
         {dealsData.map((deal) => (
           <div key={nanoid()} className="px-2">
@@ -79,9 +81,11 @@ const Deals = () => {
                 layout="fill"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-30 text-white p-4 flex flex-col justify-center rounded-3xl">
-                <h3 className="text-lg sm:text-base">{deal.title}</h3>
-                <p className="text-sm sm:text-xs">{deal.description}</p>
+              <div className="absolute inset-0 bg-black/50 text-white p-4 flex flex-col justify-center">
+                <KeepHeading level="subheading"> {deal.title}</KeepHeading>
+                <KeepDescription level="subDescription">
+                  {deal.description}
+                </KeepDescription>
                 <Button className="mt-2 w-28">Book Now</Button>
               </div>
             </div>

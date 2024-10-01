@@ -15,10 +15,18 @@ const Logo: React.FC<PropsTypes> = ({ isDark, className }) => {
       <Image
         width={176}
         height={32}
-        src={isDark ? images.logoDark : images.logo}
+        src={images.logoDark}
         alt="Logo"
         priority
-        className="min-w-10"
+        className="min-w-10 dark:hidden"
+      />
+      <Image
+        width={176}
+        height={32}
+        src={images.logo}
+        alt="Logo"
+        priority
+        className="min-w-10 hidden dark:block"
       />
     </Link>
   );

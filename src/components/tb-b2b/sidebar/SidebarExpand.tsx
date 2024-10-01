@@ -16,7 +16,12 @@ import Support from "./items/support";
 
 const SidebarExpand = ({ className }: any) => {
   return (
-    <Sidebar className={cn("shadow-none border-none", className)}>
+    <Sidebar
+      className={cn(
+        "shadow-none border-none rounded-none tb-sidebar",
+        className
+      )}
+    >
       <SidebarBody>
         <SidebarList className="space-y-0.5">
           <SidebarItem>

@@ -16,7 +16,12 @@ import {
 
 const SidebarCollapse = ({ className }: any) => {
   return (
-    <Sidebar className={cn("w-full shadow-none border-none", className)}>
+    <Sidebar
+      className={cn(
+        "w-full shadow-none rounded-none border-none tb-sidebar",
+        className
+      )}
+    >
       <SidebarBody className="space-y-4">
         <SidebarList className="space-y-1 text-metal-800">
           <SidebarItem>

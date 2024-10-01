@@ -1,3 +1,4 @@
+import KeepDescription from "@/components/keep-react/KeepDescription";
 import Deals from "@/components/root/content/Deals";
 import Destination from "@/components/root/content/Destination";
 import Exclusive from "@/components/root/content/Exclusive";
@@ -9,19 +10,19 @@ import { Button } from "keep-react";
 
 export default function Home() {
   return (
-    <section>
+    <section className="space-y-5">
       <Header />
 
-      <main className="px-10">
+      <main className="mx-10 space-y-5">
         <div className="text-center py-5">
-          <p>
+          <KeepDescription>
             Unlock the extraordinary with Trip Beyond, your passport to
             unparalleled adventures. From secluded beaches to majestic peaks,
             our expert team crafts tailor-made journeys that redefine travel.
             Immerse yourself in culture, savor unique experiences, and create
             memories that last a lifetime. Join us and journey beyond the
             ordinary with Trip Beyond.
-          </p>
+          </KeepDescription>
           <Button variant="link">Read More</Button>
         </div>
 

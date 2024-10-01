@@ -26,7 +26,7 @@ const PickDate = ({ date, setDate, label }: any) => {
           <Button
             color="secondary"
             size="lg"
-            className="flex items-center justify-start gap-3 text-[#0C254D] border overflow-hidden py-1 border-gray-400 hover:border-black rounded-md text-left text-sm w-full h-[60px] font-normal"
+            className="flex items-center justify-start gap-3 text-secondary-900 dark:hover:text-secondary-900 dark:text-secondary-900 dark:hover:bg-white border overflow-hidden py-1 hover:text-secondary-900 border-gray-400 bg-white hover:border-black rounded-md text-left text-sm w-full h-[60px] font-normal"
             variant="outline"
           >
             <div className="min-w-[40px] max-w-[40px]">

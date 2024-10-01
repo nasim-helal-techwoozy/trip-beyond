@@ -123,7 +123,7 @@ const FlightSearch = () => {
         }}
       />
       <Button
-        className="absolute left-1/4 -translate-x-[65%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-white"
+        className="absolute left-1/4 -translate-x-[65%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-secondary-900"
         onClick={() => {
           setDestination(origin);
           setOrigin(destination);
