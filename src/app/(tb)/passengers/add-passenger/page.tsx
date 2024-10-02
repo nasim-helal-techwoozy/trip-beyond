@@ -1,9 +1,8 @@
-import React from 'react'
+import AddPassenger from '@/components/tb-b2b/passenger/add-passenger/AddPassenger'
 
 const page = () => {
-    return (
-        <div>page</div>
-    )
+    return <AddPassenger />
+
 }
 
 export default page

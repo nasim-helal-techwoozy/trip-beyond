@@ -1,7 +1,7 @@
 import Logo from "@/components/common/Logo";
-import Header from "@/components/tb-b2b/header/Header";
 import SidebarCollapse from "@/components/tb-b2b/sidebar/SidebarCollapse";
 import SidebarExpand from "@/components/tb-b2b/sidebar/SidebarExpand";
+import Header from "@/components/tb-b2b/top-header/Header";
 
 export default function DefaultLayout({
   children,
@@ -9,9 +9,9 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="grid grid-rows-[80px_1fr] grid-cols-[100px_1fr] h-screen duration-500">
-      <div className="flex items-center h-full col-span-2 dark:bg-metal-900">
-        <Logo className="min-w-[280px] z-10 h-full flex items-center justify-center " />
+    <section className="grid grid-rows-[80px_1fr] grid-cols-[100px_1fr] bg-slate-100 h-screen duration-500">
+      <div className="flex items-center h-full col-span-2 bg-metal-900">
+        <Logo className="min-w-[280px] z-10 h-full flex items-center justify-center dark:bg-metal-900" />
         <Header />
       </div>
 

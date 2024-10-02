@@ -72,6 +72,7 @@ function Destination() {
               <Image
                 src={deal.image}
                 alt={deal.title}
+                layout="fill"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-30 text-white p-4 flex flex-col justify-center rounded-3xl">
