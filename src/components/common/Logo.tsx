@@ -16,7 +16,7 @@ const Logo: React.FC<PropsTypes> = ({ isDark, className }) => {
       <Image
         width={176}
         height={32}
-        src={images.logo}
+        src={images.logoDark}
         alt="Logo"
         priority
         className="min-w-10 hidden dark:block"
@@ -24,7 +24,7 @@ const Logo: React.FC<PropsTypes> = ({ isDark, className }) => {
       <Image
         width={176}
         height={32}
-        src={images.logoDark}
+        src={images.logo}
         alt="Logo"
         priority
         className="min-w-10 dark:hidden"

@@ -1,9 +1,7 @@
-import React from 'react'
+import QuickPassenger from '@/components/tb-b2b/passenger/quick-passenger/QuickPassenger'
 
 const page = () => {
-    return (
-        <div>page</div>
-    )
+    return <QuickPassenger />
 }
 
 export default page

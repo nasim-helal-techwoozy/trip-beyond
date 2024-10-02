@@ -95,7 +95,7 @@ export const IconSearchEngine = {
   DownArrow: FaAngleDown,
   Flight: GiAirplaneDeparture,
 };
-export const IconSharePnr = { plane: FaPlane };
+export const IconSharePnr = { Plane: FaPlane };
 export const IconBookingHistory = { authentication: TbLogin2 };
 export const IconPartialPayment = { authentication: TbLogin2 };
 export const IconReport = { authentication: TbLogin2 };

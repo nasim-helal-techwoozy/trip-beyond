@@ -7,10 +7,10 @@ const Search = () => {
   const [search, setSearch] = useState("");
   console.log('search', search)
   return (
-    <fieldset className="relative max-w-md  mr-auto">
+    <fieldset className="relative max-w-md mr-auto">
       <KeepInput
         placeholder="Search anything..."
-        className="border-none ps-10"
+        className="border ps-10"
         onChange={(data) => setSearch(data)}
       />
       <InputIcon>
