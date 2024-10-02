@@ -1,3 +1,4 @@
+"use client"
 import { TabContent, TabItem, TabList, Tabs } from "keep-react";
 import { nanoid } from "nanoid";
 import { FaHotel, FaPlane, FaSuitcase } from "react-icons/fa";

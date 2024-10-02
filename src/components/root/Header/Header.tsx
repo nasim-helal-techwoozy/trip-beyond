@@ -13,7 +13,7 @@ const Header = () => {
     <header
       className={`px-10 sticky left-0 top-0 z-10 w-full bg-metal-800 flex items-center gap-3 py-4`}
     >
-      <Logo isDark={false} className="mr-auto" />
+      <Logo className="mr-auto" />
 
       <KeepModal
         modalOver={
