@@ -10,6 +10,7 @@ interface PropsTypes {
   className?: string;
 }
 const Logo: React.FC<PropsTypes> = ({ isDark, className }) => {
+  console.log('isDark', isDark)
   return (
     <Link href="/" className={cn("block", className)}>
       <Image

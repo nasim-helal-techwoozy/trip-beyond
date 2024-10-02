@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Search = () => {
   const [search, setSearch] = useState("");
+  console.log('search', search)
   return (
     <fieldset className="relative max-w-md  mr-auto">
       <KeepInput

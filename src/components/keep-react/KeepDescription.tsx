@@ -20,7 +20,7 @@ const KeepDescription: React.FC<PropsTypes> = ({
     return (
       <p
         className={cn(
-          "text-body-3 text-metal-500 dark:text-metal-300",
+          "text-body-3 text-metal-500  dark:text-metal-300",
           className
         )}
         {...rest}

@@ -104,7 +104,7 @@ const FlightSearch = () => {
         setDestinationAirportLists(myNewLists);
       }
     }
-  }, [origin, destination, originSearchKey, destinationSearchKey]);
+  }, [originSearchKey, destinationSearchKey, destination.value, origin.value, restOriginAirportLists, restDestinationAirportLists]);
 
   return (
     <div className="grid grid-cols-4 gap-5">

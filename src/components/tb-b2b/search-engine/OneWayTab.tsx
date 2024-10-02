@@ -16,7 +16,7 @@ const OneWayTab = () => {
 
   /**===================redux start========================= */
   const { isLoading } = useStoreState((state: any) => state.searchFlight);
-
+  console.log('isLoading', isLoading)
   const { oneWaySearch } = useStoreActions(
     (actions: any) => actions.searchFlight
   );
@@ -65,6 +65,8 @@ const OneWayTab = () => {
       },
     });
   };
+
+  console.log('handleSubmission', handleSubmission)
 
   return (
     <div className="flex w-full items-center gap-5 p-5">

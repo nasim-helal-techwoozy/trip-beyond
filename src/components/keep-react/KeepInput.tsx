@@ -25,7 +25,7 @@ const KeepInput: React.FC<KeepInputProps> = ({
       type={type}
       {...rest}
       className={cn(
-        "border dark:border-metal-50 border-metal-300 text-base placeholder:text-metal-300",
+        "border dark:border-metal-50 border-metal-300 text-base placeholder:text-metal-400",
         className
       )}
       value={value ?? data}

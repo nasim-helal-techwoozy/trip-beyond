@@ -1,7 +1,8 @@
+import AgentSignup from "@/components/agent/AgentSignupForm";
 import React from "react";
 
 const AgentSignUpPage = () => {
-  return <div>AgentSignUpPage</div>;
+  return <AgentSignup />
 };
 
 export default AgentSignUpPage;
