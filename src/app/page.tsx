@@ -5,7 +5,7 @@ import Exclusive from "@/components/root/content/Exclusive";
 import Featured from "@/components/root/content/Featured";
 import QrCodeBanner from "@/components/root/content/QrCodeBanner";
 import Footer from "@/components/root/footer/Footer";
-import Header from "@/components/root/Header/Header";
+import Header from "@/components/root/landing-header/Header";
 import { Button } from "keep-react";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     <section className="space-y-5">
       <Header />
 
-      <main className="px-10 space-y-5">
+      <main className="px-10 space-y-12">
         <div className="text-center py-5">
           <KeepDescription>
             Unlock the extraordinary with Trip Beyond, your passport to
