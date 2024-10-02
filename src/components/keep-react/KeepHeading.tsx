@@ -20,7 +20,7 @@ const KeepHeading: React.FC<PropsTypes> = ({
     return (
       <h1
         className={cn(
-          "mb-2 inline-block w-full text-heading-6 font-semibold text-metal-900 dark:text-white",
+          "mb-2 inline-block w-full text-heading-6 font-semibold text-white dark:text-white",
           className
         )}
         {...rest}
