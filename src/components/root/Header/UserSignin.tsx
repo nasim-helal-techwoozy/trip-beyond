@@ -1,3 +1,4 @@
+"use client"
 import KeepHeading from "@/components/keep-react/KeepHeading";
 import KeepInput from "@/components/keep-react/KeepInput";
 import { Button, ModalClose, toast } from "keep-react";
