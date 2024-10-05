@@ -86,7 +86,7 @@ const Deals = () => {
                 <KeepDescription level="subDescription">
                   {deal.description}
                 </KeepDescription>
-                <Button className="mt-2 w-28">Book Now</Button>
+                <Button className="mt-2 w-28 text-black">Book Now</Button>
               </div>
             </div>
           </div>
