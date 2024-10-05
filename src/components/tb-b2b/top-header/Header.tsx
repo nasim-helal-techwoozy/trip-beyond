@@ -1,5 +1,4 @@
 "use client";
-import ThemeSwitcher from "@/themes/ThemeSwitcher";
 
 import { cn } from "keep-react/utils";
 import Notifications from "./Notifications";
@@ -15,8 +14,6 @@ const Header = ({ className }: any) => {
       )}
     >
       <Search />
-
-      {/* <ThemeSwitcher /> */}
 
       <Notifications />
 
