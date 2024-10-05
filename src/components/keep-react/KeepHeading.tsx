@@ -32,7 +32,7 @@ const KeepHeading: React.FC<PropsTypes> = ({
     return (
       <h1
         className={cn(
-          "mb-2 inline-block w-full text-xl font-medium text-metal-900 dark:text-white",
+          "mb-2 inline-block w-full text-xl font-medium text-secondary-main dark:text-white",
           className
         )}
         {...rest}
@@ -44,7 +44,7 @@ const KeepHeading: React.FC<PropsTypes> = ({
     return (
       <h1
         className={cn(
-          "text-body-3 font-medium text-metal-900 dark:text-white",
+          "text-body-3 font-medium text-secondary-main dark:text-white",
           className
         )}
         {...rest}

@@ -78,7 +78,7 @@ function Destination() {
               <div className="absolute inset-0 bg-black bg-opacity-30 text-white p-4 flex flex-col justify-center rounded-3xl">
                 <h3 className="text-lg font-normal">{deal.title}</h3>
                 <div>
-                  <Button className="mt-2 w-28">Book Now</Button>
+                  <Button className="mt-2 w-28 text-black">Book Now</Button>
                 </div>
               </div>
             </div>

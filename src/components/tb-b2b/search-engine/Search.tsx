@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { TabContent, TabItem, TabList, Tabs } from "keep-react";
 import { nanoid } from "nanoid";
 import { FaHotel, FaPlane, FaSuitcase } from "react-icons/fa";
@@ -37,7 +37,7 @@ const Search: React.FC = () => {
           ))}
         </TabList>
 
-        <div className="bg-white dark:bg-metal-900 m-5 p-7 rounded-lg">
+        <div className="bg-white dark:bg-secondary-main m-5 p-7 rounded-lg">
           <TabContent value="flights">
             <Flight />
           </TabContent>

@@ -1,14 +1,15 @@
 import type { Config } from "tailwindcss";
 import { keepTheme, colors } from "keep-react/keepTheme";
+import { themeColor } from "./themeColor";
 
 const colorsPalette = {
   ...colors,
   primary: {
-    "500": "#F6931D",
-    main: "#F6931D", //yellow
+    "500": themeColor.primary,
+    main: themeColor.primary, //yellow
   },
   secondary: {
-    main: "#0C254D", // navy-blue
+    main: themeColor.secondary, // navy-blue
     25: "#E3EAF3",
     50: "#C8D5E7",
     100: "#A3B9D4",
@@ -19,7 +20,7 @@ const colorsPalette = {
     600: "#2E547A", // main used for text color
     700: "#20405C",
     800: "#142C3D",
-    900: "#0C254D",
+    900: themeColor.secondary,
   },
   metal: {
     25: "#f9fafb",
@@ -35,8 +36,8 @@ const colorsPalette = {
     800: "#142C3D",
     900: "#142C3D", // dark primary color
   },
-  outbox: "#d6d6d6",
-  // navyBlue: "#0C254D",
+  selection: themeColor.selection,
+  // navyBlue: themeColor.secondary,
 };
 
 const config: Config = {
