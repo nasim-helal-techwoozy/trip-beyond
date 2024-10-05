@@ -38,59 +38,61 @@ const UserSignup = () => {
 
         <div className="flex gap-3">
           <input
-            className="user-signup-input"
-            placeholder="Enter first name"
+            className="user-signup-input capitalize"
+            placeholder=" first name"
             value={user.firstName}
             onChange={(e) => setUser({ ...user, firstName: e.target.value })}
             required
           />
           <input
-            className="user-signup-input"
-            placeholder="Enter last name"
+            className="user-signup-input capitalize"
+            placeholder=" last name"
             value={user.lastName}
             onChange={(e) => setUser({ ...user, lastName: e.target.value })}
           />
         </div>
 
         <input
-          className="user-signup-input"
-          placeholder="Enter your email"
+          className="user-signup-input capitalize"
+          placeholder=" email id"
           type="email"
           onChange={(e) => setUser({ ...user, email: e.target.value })}
           required
         />
 
         <input
-          className="user-signup-input"
-          placeholder="Enter password"
+          className="user-signup-input capitalize"
+          placeholder=" password"
           type="password"
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
 
         <input
-          className="user-signup-input"
-          placeholder="Retype your password"
+          className="user-signup-input capitalize"
+          placeholder="Re enter password"
           type="password"
           onChange={(e) => setUser({ ...user, rePassword: e.target.value })}
           required
         />
-        <ModalClose asChild>
-          <Button className="w-full" type="submit">
-            Register
-          </Button>
-        </ModalClose>
+
+        <Button
+          className="w-full py-6 rounded-2xl text-lg font-semibold text-black"
+          type="submit"
+        >
+          Register
+        </Button>
       </form>
 
       <div>Or</div>
 
       <div className="flex flex-col gap-3 *:flex-1 *:gap-2">
-        <Button className="bg-blue-500">
-          <IconAuthentication.Facebook />
+        <Button className="bg-blue-500 rounded-2xl py-3 px-10">
+          <IconAuthentication.Facebook size={28} className="mr-2" />
           Log In with Facebook
         </Button>
 
-        <Button color="error">
-          <IconAuthentication.Google />
+        <Button color="error" className=" rounded-2xl py-3 px-10">
+          <IconAuthentication.Google size={28} className="mr-2" />
           Log In with Google
         </Button>
       </div>
