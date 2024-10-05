@@ -47,7 +47,7 @@ const Exclusive = () => {
                 by the readable content of a page when looking at its layout.
               </KeepDescription>
             </div>
-            <Button className="text-black">{`Let's Go`}</Button>
+            <Button className="text-black rounded-2xl">{`Let's Go`}</Button>
           </div>
         </div>
         <div className="p-4">
@@ -61,7 +61,7 @@ const Exclusive = () => {
                 by the readable content of a page when looking at its layout.
               </KeepDescription>
             </div>
-            <Button className="text-black">Book Now</Button>
+            <Button className="text-black rounded-2xl">Book Now</Button>
           </div>
         </div>
       </div>
