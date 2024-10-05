@@ -1,8 +1,6 @@
 "use client";
-import Logo from "@/components/common/Logo";
-import KeepInput from "@/components/keep-react/KeepInput";
 import { IconAuthentication } from "@/interfaces/icons";
-import { Button, ModalClose, toast } from "keep-react";
+import { Button, toast } from "keep-react";
 import { debounce } from "lodash";
 import { useState } from "react";
 
