@@ -23,7 +23,7 @@ const SidebarCollapse = ({ className }: any) => {
       )}
     >
       <SidebarBody className="space-y-4">
-        <SidebarList className="space-y-1 text-metal-800">
+        <SidebarList className="space-y-1 text-secondary-main">
           <SidebarItem>
             <MagnifyingGlass size={25} />
           </SidebarItem>

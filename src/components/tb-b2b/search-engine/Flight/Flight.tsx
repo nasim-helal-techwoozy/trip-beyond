@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  TabContent,
-  TabItem,
-  TabList,
-  Tabs,
-} from "keep-react";
+import { TabContent, TabItem, TabList, Tabs } from "keep-react";
 import { nanoid } from "nanoid";
 import OneWay from "./one-way/OneWay";
 import RoundTrip from "./round-trip/RoundTrip";

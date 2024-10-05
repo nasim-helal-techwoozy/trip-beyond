@@ -11,7 +11,7 @@ const Header = () => {
   const router = useRouter();
   return (
     <header
-      className={`px-10 sticky left-0 top-0 z-10 w-full bg-metal-800 flex items-center gap-3 py-4`}
+      className={`px-10 sticky left-0 top-0 z-10 w-full bg-secondary-main flex items-center gap-3 py-4`}
     >
       <Logo className="mr-auto" />
 
@@ -38,15 +38,16 @@ const Header = () => {
 
       <Button
         color="primary"
-        className="rounded-full"
+        className="rounded-full text-black py-0"
         onClick={() => router.push("/agent/signin")}
       >
         Agent Login
       </Button>
 
-      <Button className="rounded-full">
+      <div className="bg-primary-main size-8 text-secondary-main flex items-center justify-center rounded-full">
         <IconHomePage.Phone size={20} />
-      </Button>
+      </div>
+
       {/* <MobileMenu /> */}
     </header>
   );

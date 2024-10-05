@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="!border-metal-400 text-metal-900 bg-[#f4f4f4] dark:bg-metal-700 dark:text-metal-100 text-base">
+      <body className="text-secondary-main bg-[#f4f4f4] text-base">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -31,13 +31,12 @@ export default function RootLayout({
           <ToastWrapper
             toastOptions={{
               classNames: {
-                toast:
-                  "dark:bg-metal-900 border dark:border-metal-800 border-white bg-white",
-                title: "text-metal-900 dark:text-white",
-                description: "dark:text-metal-300 text-metal-600",
-                actionButton: "dark:bg-metal-800 bg-metal-900 text-white",
-                cancelButton: "dark:bg-metal-800 bg-metal-900 text-white",
-                closeButton: "dark:bg-metal-800 bg-metal-900 text-white",
+                toast: "border border-white bg-white",
+                title: "text-secondary-main ",
+                description: "text-metal-600",
+                actionButton: "bg-secondary-main text-white",
+                cancelButton: "bg-secondary-main text-white",
+                closeButton: "bg-secondary-main text-white",
                 error: "text-error-500",
                 success: "text-success-500",
                 warning: "text-warning-500",

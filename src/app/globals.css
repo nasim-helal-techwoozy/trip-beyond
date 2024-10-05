@@ -31,7 +31,21 @@
   color: #0c254D !important;
   font-size: 30px !important;
 }
+/* Targeting the arrows specifically for this component */
+.destination-slider .slick-prev,
+.destination-slider .slick-next {
+  top: 40%; /* Vertically center */
+  transform: translateY(-50%); /* Correct for the 50% top offset */
+  z-index: 1; /* Ensure they are above the content */
+}
 
+.destination-slider .slick-prev {
+  left: -25px; /* Adjust this value to control the horizontal position */
+}
+
+.destination-slider .slick-next {
+  right: -25px; /* Adjust this value to control the horizontal position */
+}
 .tb-sidebar {
   min-height: 100% !important;
 }

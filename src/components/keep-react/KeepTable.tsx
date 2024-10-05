@@ -29,21 +29,21 @@ export const KeepTable: React.FC<PropsTypes> = ({
   return (
     <>
       <div className="flex items-center gap-2 px-1 py-5">
-        <h2 className="text-heading-6 font-semibold text-metal-900 dark:text-white">
+        <h2 className="text-heading-6 font-semibold text-secondary-main dark:text-white">
           {tableTitle}
         </h2>
 
-        <Badge className="dark:bg-metal-800 dark:text-white">
+        <Badge className="dark:bg-secondary-main dark:text-white">
           {data.length}
         </Badge>
 
         <Button variant="outline" className=" ml-auto">
-          <Plus className="size-4 fill-metal-900 dark:fill-white mr-2" />
+          <Plus className="size-4 fill-secondary-main dark:fill-white mr-2" />
           Add Data
         </Button>
 
         <Button variant="outline">
-          <Funnel className="size-4 fill-metal-900 dark:fill-white mr-2" />
+          <Funnel className="size-4 fill-secondary-main dark:fill-white mr-2" />
           Filter Data
         </Button>
       </div>
@@ -69,7 +69,7 @@ export const KeepTable: React.FC<PropsTypes> = ({
                 <Dropdown>
                   <DropdownAction asChild>
                     <button>
-                      <DotsThreeOutlineVertical className="size-4 fill-metal-900 dark:fill-white" />
+                      <DotsThreeOutlineVertical className="size-4 fill-secondary-main dark:fill-white" />
                     </button>
                   </DropdownAction>
                   <DropdownContent className="max-w-[200px] border border-metal-100 p-3">

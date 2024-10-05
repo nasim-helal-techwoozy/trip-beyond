@@ -32,7 +32,7 @@ const ThemeSwitcher = () => {
           <SunDim size={20} className="block dark:hidden" />
         </Button>
       </DropdownAction>
-      <DropdownContent className="w-[150px] dark:bg-metal-900">
+      <DropdownContent className="w-[150px] dark:bg-secondary-main">
         <DropdownList className="flex flex-col">
           <Button variant="link" onClick={() => setTheme("light")}>
             Light
