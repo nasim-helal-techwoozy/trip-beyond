@@ -67,11 +67,17 @@ const LinkMapper = ({ title, links, className, children }: any) => {
   return (
     <div className={cn("flex flex-col gap-1", className)}>
       {title && (
-        <h6 className="text-body-3 font-semibold capitalize">{title}</h6>
+        <h6 className="text-body-3 font-semibold capitalize text-primary-main">
+          {title}
+        </h6>
       )}
       {links?.map((link: any) => {
         return (
-          <Link key={nanoid()} href={link.href} className="text-primary-main">
+          <Link
+            key={nanoid()}
+            href={link.href}
+            className="text-slate-300 text-sm font-light"
+          >
             {link.item}
           </Link>
         );

@@ -11,8 +11,9 @@ const customStyles = {
     width: "100%",
     height: "60px",
     boxShadow: "none",
+    border: "0px solid #0C254D",
     "&:hover": {
-      border: "1px solid #0C254D",
+      // border: "0px solid #0C254D",
     },
   }),
   option: (provided: any, state: any) => ({

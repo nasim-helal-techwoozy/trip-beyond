@@ -1,5 +1,4 @@
 "use client";
-import KeepInput from "@/components/keep-react/KeepInput";
 import { Button } from "keep-react";
 import { useState } from "react";
 
@@ -14,15 +13,18 @@ const NewsLetter = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="grid grid-cols-2 gap-2 *:col-span-1 *:rounded-full"
+      className="grid grid-cols-2 gap-2 *:col-span-1 "
     >
       <p className="!col-span-2">Newsletter</p>
-      <KeepInput
+      <input
         placeholder="Your Email"
         value={email}
-        onChange={(data) => setEmail(data)}
+        className="rounded-lg px-2"
+        onChange={(e) => setEmail(e.target.value)}
       />
-      <Button type="submit">subscribe</Button>
+      <Button type="submit" className="w-28 h-full rounded-3xl text-black">
+        subscribe
+      </Button>
     </form>
   );
 };

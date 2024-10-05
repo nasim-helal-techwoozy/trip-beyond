@@ -4,10 +4,10 @@ import KeepHeading from "@/components/keep-react/KeepHeading";
 const Featured = () => {
   return (
     <div className="space-y-4 w-full max-w-5xl mx-auto mb-5 p-5">
-      <KeepHeading level="secondary">
+      <KeepHeading level="subheading">
         Save on Travel with tripbeyond.com
       </KeepHeading>
-      <KeepDescription>
+      <KeepDescription className="font-light text-sm">
         Tripbeyond.com is a rapidly-growing global online travel agency,
         Tripbeyond.com is here to help you plan the perfect trip. Whether youre
         going on holiday, taking a business trip, or looking to set up a
@@ -21,7 +21,7 @@ const Featured = () => {
         German, French, and Spanish are just a call— or click—away. Easily
         Customize Your Trip with the Best Hotel and Fnormal text-gray-500 Deals
       </KeepDescription>
-      <KeepDescription>
+      <KeepDescription className="font-light text-sm">
         It&apos;s easy to customize your travel experience with our robust
         fnormal text-gray-500 and hotel search filter options and Trip.com
         travel tools like fnormal text-gray-500 fare alerts, deal-finder
@@ -30,8 +30,8 @@ const Featured = () => {
         including credit and debit cards, and UnionPay.
       </KeepDescription>
 
-      <KeepHeading level="secondary">Featured Hotel Destinations</KeepHeading>
-      <KeepDescription>
+      <KeepHeading level="subheading">Featured Hotel Destinations</KeepHeading>
+      <KeepDescription className="font-light text-sm">
         Hotels in Shanghai | Hotels in Beijing | Hotels in Guangzhou | Hotels in
         Shenzhen | Hotels in Hangzhou | Hotels in Xiamen | Hotels in Chengdu |
         Hotels in Hong Kong | Hotels in Macau | Hotels in Tokyo | Hotels in
@@ -39,10 +39,10 @@ const Featured = () => {
         in Seoul | Hotels in Taipei | Hotels in Singapore | Hotels in Kuala
         Lumpur | Hotels in Bangkok | Hotels in Da Nang
       </KeepDescription>
-      <KeepHeading level="secondary">
+      <KeepHeading level="subheading">
         Featured Fnormal text-gray-500 Destinations
       </KeepHeading>
-      <KeepDescription>
+      <KeepDescription className="font-light text-sm">
         Fnormal text-gray-500s to Cebu | Fnormal text-gray-500s to Jakarta |
         Fnormal text-gray-500s to Hanoi | Fnormal text-gray-500s to Chengdu |
         Fnormal text-gray-500s to Phuket | Fnormal text-gray-500s to Macau |
@@ -55,8 +55,8 @@ const Featured = () => {
         Manila | Fnormal text-gray-500s to Guangzhou | Fnormal text-gray-500s to
         Kuala Lumpur
       </KeepDescription>
-      <KeepHeading level="secondary">Featured Tours & Tickets</KeepHeading>
-      <KeepDescription>
+      <KeepHeading level="subheading">Featured Tours & Tickets</KeepHeading>
+      <KeepDescription className="font-light text-sm">
         Shanghai Disneyland Ticket | Forbidden City Ticket | Terracotta Warriors
         Ticket | Sichuan Opera Show Ticket | Universal Orlando Ticket | Legoland
         Florida Ticket | Antelope Canyon Ticket | Empire State Building
