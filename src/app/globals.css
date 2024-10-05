@@ -28,7 +28,8 @@
 /* silk-carousel arrow color change */
 .slick-prev:before,
 .slick-next:before {
-  color: #f6931d !important;
+  color: #0c254D !important;
+  font-size: 30px !important;
 }
 
 .tb-sidebar {

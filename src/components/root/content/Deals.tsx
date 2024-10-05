@@ -68,7 +68,7 @@ const Deals = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto mt-16 mb-8">
-      <KeepHeading level="secondary" className="text-center">
+      <KeepHeading level="secondary" className="text-center py-2">
         Find Great Deals, Only for you
       </KeepHeading>
       <Slider {...settings}>
@@ -82,11 +82,19 @@ const Deals = () => {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-black/50 text-white p-4 flex flex-col justify-center">
-                <KeepHeading level="subheading"> {deal.title}</KeepHeading>
-                <KeepDescription level="subDescription">
+                <KeepHeading
+                  level="primary"
+                  className="text-primary-main font-bold"
+                >
+                  {" "}
+                  {deal.title}
+                </KeepHeading>
+                <KeepDescription level="primary" className="text-white text-lg">
                   {deal.description}
                 </KeepDescription>
-                <Button className="mt-2 w-28 text-black">Book Now</Button>
+                <Button className="mt-2 w-28 text-black rounded-2xl">
+                  Book Now
+                </Button>
               </div>
             </div>
           </div>
