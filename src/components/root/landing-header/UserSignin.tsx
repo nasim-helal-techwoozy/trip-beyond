@@ -1,6 +1,6 @@
 "use client";
+import FormFooter from "@/components/common/form-element/FormFooter";
 import KeepHeading from "@/components/keep-react/KeepHeading";
-import KeepInput from "@/components/keep-react/KeepInput";
 import { IconAuthentication } from "@/interfaces/icons";
 import { Button, ModalClose, toast } from "keep-react";
 import { debounce } from "lodash";
@@ -28,33 +28,47 @@ export const UserSignin = () => {
       <KeepHeading level="secondary" className="text-center">
         Sign In
       </KeepHeading>
-      <KeepInput
-        required
+
+      <input
+        className="user-signup-input text-center"
+        placeholder="Email ID"
         type="email"
-        placeholder="Enter your email"
-        onChange={(data) => setUser({ ...user, email: data })}
-      />
-      <KeepInput
+        onChange={(e) => setUser({ ...user, email: e.target.value })}
         required
-        type="password"
-        placeholder="Enter your password"
-        onChange={(data) => setUser({ ...user, password: data })}
       />
+      <input
+        className="user-signup-input text-center"
+        placeholder="Password"
+        type="password"
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
+        required
+      />
+      <ModalClose asChild>
+        <Button type="submit" className="rounded-2xl text-black font-bold">
+          Enter
+        </Button>
+      </ModalClose>
+      <FormFooter
+        text="Not an user?"
+        linkText="Register"
+        linkHref="/user/signup"
+        forgetPassHref="/forgetpassword"
+      />
+      <div className="text-center">
+        <p>Or</p>
+      </div>
 
       <div className="flex flex-col gap-3 *:flex-1 *:gap-2">
-        <Button className="bg-blue-500">
+        <Button className="bg-blue-500 rounded-2xl">
           <IconAuthentication.Facebook />
           Log In with Facebook
         </Button>
 
-        <Button color="error">
+        <Button color="error" className="rounded-2xl">
           <IconAuthentication.Google />
           Log In with Google
         </Button>
       </div>
-      <ModalClose asChild>
-        <Button type="submit">Login</Button>
-      </ModalClose>
     </form>
   );
 };

@@ -21,6 +21,7 @@ const colorsPalette = {
     800: "#142C3D",
     900: "#0C254D",
   },
+
   metal: {
     25: "#f9fafb",
     50: "#e9eff6", // 50===100
@@ -35,6 +36,8 @@ const colorsPalette = {
     800: "#142C3D",
     900: "#142C3D", // dark primary color
   },
+  // outbox: "#d6d6d6",
+  // blue: "#0C254D",
 };
 
 const config: Config = {

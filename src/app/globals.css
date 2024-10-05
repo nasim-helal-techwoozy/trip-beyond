@@ -34,3 +34,7 @@
 .tb-sidebar {
   min-height: 100% !important;
 }
+
+.user-signup-input {
+  @apply px-3 py-3 placeholder:text-gray-700 rounded-2xl border border-black focus:outline-none;
+}

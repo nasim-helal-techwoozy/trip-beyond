@@ -11,7 +11,7 @@ export default function DefaultLayout({
   return (
     <section className="grid grid-rows-[80px_1fr] grid-cols-[100px_1fr] bg-slate-100 h-screen duration-500">
       <div className="flex items-center h-full col-span-2 bg-metal-900">
-        <Logo className="min-w-[280px] z-10 h-full flex items-center justify-center dark:bg-metal-900" />
+        <Logo className="min-w-[280px] z-10 h-full flex items-center justify-center " />
         <Header />
       </div>
 

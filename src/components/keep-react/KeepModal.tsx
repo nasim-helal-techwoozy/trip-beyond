@@ -17,9 +17,12 @@ const KeepModal: React.FC<PropsTypes> = ({
     <Modal>
       <ModalAction asChild>{modalOver}</ModalAction>
       <ModalContent
-        className={cn("min-w-[20rem] px-10 py-10 lg:min-w-[26rem]", className)}
+        className={cn(
+          "min-w-[25rem] px-10 py-10 lg:min-w-[26rem] rounded-[50px]",
+          className
+        )}
       >
-        <ModalClose className="absolute right-4 top-4" />
+        <ModalClose className="absolute right-5 top-6" />
         {children}
       </ModalContent>
     </Modal>
