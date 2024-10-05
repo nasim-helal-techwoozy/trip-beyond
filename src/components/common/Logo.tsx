@@ -9,25 +9,17 @@ interface PropsTypes {
   isDark?: boolean;
   className?: string;
 }
+
 const Logo: React.FC<PropsTypes> = ({ isDark, className }) => {
-  console.log('isDark', isDark)
   return (
     <Link href="/" className={cn("block", className)}>
       <Image
         width={176}
         height={32}
-        src={images.logoDark}
+        src={isDark ? images.logoDark : images.logo}
         alt="Logo"
         priority
-        className="min-w-10 hidden dark:block"
-      />
-      <Image
-        width={176}
-        height={32}
-        src={images.logo}
-        alt="Logo"
-        priority
-        className="min-w-10 dark:hidden"
+        className="min-w-10"
       />
     </Link>
   );

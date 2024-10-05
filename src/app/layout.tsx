@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="!border-metal-400 text-metal-900 dark:bg-metal-700 dark:text-metal-100 text-base">
+      <body className="!border-metal-400 text-metal-900 bg-[#f4f4f4] dark:bg-metal-700 dark:text-metal-100 text-base">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
