@@ -71,7 +71,7 @@ const LinkMapper = ({ title, links, className, children }: any) => {
       )}
       {links?.map((link: any) => {
         return (
-          <Link key={nanoid()} href={link.href} className="text-primary-500">
+          <Link key={nanoid()} href={link.href} className="text-primary-main">
             {link.item}
           </Link>
         );

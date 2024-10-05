@@ -104,7 +104,14 @@ const FlightSearch = () => {
         setDestinationAirportLists(myNewLists);
       }
     }
-  }, [originSearchKey, destinationSearchKey, destination.value, origin.value, restOriginAirportLists, restDestinationAirportLists]);
+  }, [
+    originSearchKey,
+    destinationSearchKey,
+    destination.value,
+    origin.value,
+    restOriginAirportLists,
+    restDestinationAirportLists,
+  ]);
 
   return (
     <div className="grid grid-cols-4 gap-5">
@@ -123,7 +130,7 @@ const FlightSearch = () => {
         }}
       />
       <Button
-        className="absolute left-1/4 -translate-x-[65%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-secondary-900"
+        className="absolute left-1/4 -translate-x-[65%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-secondary-main"
         onClick={() => {
           setDestination(origin);
           setOrigin(destination);

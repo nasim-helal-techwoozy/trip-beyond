@@ -41,7 +41,7 @@ export default function RootLayout({
                 error: "text-error-500",
                 success: "text-success-500",
                 warning: "text-warning-500",
-                info: "text-primary-500",
+                info: "text-primary-main",
               },
             }}
           />
