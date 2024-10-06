@@ -10,7 +10,7 @@ import { Button } from "keep-react";
 
 export default function Home() {
   return (
-    <section className="space-y-5">
+    <section className="space-y-5 ">
       <Header />
 
       <main className="px-10 space-y-12">

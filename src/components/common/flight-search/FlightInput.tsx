@@ -40,7 +40,7 @@ const FlightInput = ({
 }: any) => {
   return (
     <div>
-      {label && <Label>{label}</Label>}
+      {label && <Label className="text-primary-500">{label}</Label>}
       <Select
         options={options}
         formatOptionLabel={formatOptionLabel}

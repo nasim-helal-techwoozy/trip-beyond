@@ -10,6 +10,8 @@
 .seBanner {
   background-image: url("../assets/images/banner/banner.webp");
   background-attachment: fixed;
+  background-position: center;
+  background-size: cover; 
   background-position: center right;
   position: relative;
   z-index: 1;

@@ -7,11 +7,10 @@ import { useEffect, useState } from "react";
 import FlightInput from "@/components/common/flight-search/FlightInput";
 import PickDate from "@/components/common/flight-search/PickDate";
 
-const OneWayInputs = () => {
-  const { setOrigin, setDestination, setDepartureDate } = useStoreActions(
-    (actions: any) => actions.flightSearch
-  );
-  const { origin, destination, departureDate } = useStoreState(
+const RoundTripInputs = () => {
+  const { setOrigin, setDestination, setDepartureDate, setReturnDate } =
+    useStoreActions((actions: any) => actions.flightSearch);
+  const { origin, destination, departureDate, returnDate } = useStoreState(
     (state: any) => state.flightSearch
   );
 
@@ -115,7 +114,7 @@ const OneWayInputs = () => {
   ]);
 
   return (
-    <div className="grid grid-cols-4 gap-24 items-center relative">
+    <div className="grid grid-cols-5 gap-8 relative">
       {/* From Input */}
       <div className="flex flex-col items-center relative">
         <FlightInput
@@ -134,10 +133,8 @@ const OneWayInputs = () => {
         />
         {/* Vertical Line */}
       </div>
-
-      {/* Swap Button */}
       <Button
-        className="absolute bg-gray-300 left-1/4 -translate-x-[60%] top-1/2 -translate-y-[50%] p-1 size-[30px] aspect-square rounded-full z-10"
+        className="absolute bg-gray-300 left-[20%] -translate-x-[79%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10"
         onClick={() => {
           setDestination(origin);
           setOrigin(destination);
@@ -145,7 +142,6 @@ const OneWayInputs = () => {
       >
         <IconSearchEngine.Swap className="text-xl text-black" />
       </Button>
-
       {/* To Input */}
       <div className="flex flex-col items-center relative">
         <FlightInput
@@ -168,13 +164,17 @@ const OneWayInputs = () => {
         <div className="absolute right-[-25px] top-0 bottom-0 w-[1px] bg-slate-700"></div>
       </div>
 
-      {/* Date Picker */}
+      {/*Departure Date Picker */}
       <div className="flex flex-col items-center">
         <PickDate
           date={departureDate}
           setDate={setDepartureDate}
           label="Departure"
         />
+      </div>
+      {/* Returbn Date Picker */}
+      <div className="flex flex-col items-center">
+        <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
       </div>
 
       {/* Submit Button */}
@@ -186,4 +186,4 @@ const OneWayInputs = () => {
     </div>
   );
 };
-export default OneWayInputs;
+export default RoundTripInputs;
