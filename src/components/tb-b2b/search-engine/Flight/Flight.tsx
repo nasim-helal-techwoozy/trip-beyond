@@ -1,16 +1,16 @@
-import React from "react";
-import { TabContent, TabItem, TabList, Tabs } from "keep-react";
+import { Switch, TabContent, TabItem, TabList, Tabs } from "keep-react";
 import { nanoid } from "nanoid";
+import { SelectEconomy } from "../selects/SelectEconomy";
+import { SelectTravellers } from "../selects/SelectTravellers";
+import MultiCity from "./multi-city/MultiCity";
 import OneWay from "./one-way/OneWay";
 import RoundTrip from "./round-trip/RoundTrip";
-import MultiCity from "./multi-city/MultiCity";
 import Umrah from "./Umrah/Umrah";
-
 const tabs = ["one way", "round trip", "multi city", "umrah"];
 
 const Flight = () => {
   return (
-    <Tabs defaultActive="one-way" className="mx-auto w-full">
+    <Tabs variant="default" defaultActive="one-way" className="mx-auto w-full">
       <TabList>
         {tabs.map((tab) => (
           <TabItem
@@ -21,6 +21,15 @@ const Flight = () => {
             {tab}
           </TabItem>
         ))}
+        <SelectTravellers />
+        <SelectEconomy />
+        <div className="flex ml-64 gap-2">
+          <Switch
+            variant="default"
+            className="bg-secondary-300 text-black border"
+          />
+          <p className="font-normal">Direct Flights Only</p>
+        </div>
       </TabList>
 
       <TabContent value="one-way">

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import FlightInput from "@/components/common/flight-search/FlightInput";
 import PickDate from "@/components/common/flight-search/PickDate";
 
-const OneWayInputs = () => {
+const MulticityInputs = () => {
   const { setOrigin, setDestination, setDepartureDate } = useStoreActions(
     (actions: any) => actions.flightSearch
   );
@@ -186,4 +186,4 @@ const OneWayInputs = () => {
     </div>
   );
 };
-export default OneWayInputs;
+export default MulticityInputs;

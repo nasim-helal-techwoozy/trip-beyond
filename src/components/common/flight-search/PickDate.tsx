@@ -20,7 +20,7 @@ const PickDate = ({ date, setDate, label }: any) => {
 
   return (
     <div>
-      <Label>{label}</Label>
+      <Label className="text-primary-500">{label}</Label>
       <Popover showArrow={false} placement="bottom-start">
         <PopoverAction asChild>
           <Button
