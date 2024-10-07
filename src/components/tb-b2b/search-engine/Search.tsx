@@ -26,7 +26,7 @@ const tabs: MenuItem[] = [
 
 const Search: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center seBanner p-10">
+    <div className="flex flex-col items-center justify-center seBanner p-1 lg:p-10">
       <Tabs defaultActive="flights" className="mx-auto w-full">
         <TabList className="flex items-center justify-center">
           {tabs.map((tab) => (
@@ -37,7 +37,7 @@ const Search: React.FC = () => {
           ))}
         </TabList>
 
-        <div className="bg-white dark:bg-secondary-main m-5 p-7 rounded-3xl">
+        <div className="bg-white dark:bg-secondary-main m-5 p-7 rounded-sm lg:rounded-3xl">
           <TabContent value="flights">
             <Flight />
           </TabContent>

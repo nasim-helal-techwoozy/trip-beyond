@@ -115,9 +115,9 @@ const OneWayInputs = () => {
   ]);
 
   return (
-    <div className="grid grid-cols-4 gap-24 items-center relative">
+    <div className="grid grid-cols-1 lg:grid-cols-6  justify-center items-center px-1">
       {/* From Input */}
-      <div className="flex flex-col items-center relative">
+      <div className="h-auto rounded-lg">
         <FlightInput
           label="From"
           id="from"
@@ -132,22 +132,22 @@ const OneWayInputs = () => {
             setOrigin(option);
           }}
         />
-        {/* Vertical Line */}
       </div>
 
       {/* Swap Button */}
-      <Button
-        className="absolute bg-gray-300 left-1/4 -translate-x-[60%] top-1/2 -translate-y-[50%] p-1 size-[30px] aspect-square rounded-full z-10"
-        onClick={() => {
-          setDestination(origin);
-          setOrigin(destination);
-        }}
-      >
-        <IconSearchEngine.Swap className="text-xl text-black" />
-      </Button>
-
+      <div className="flex items-center justify-center h-auto ">
+        <Button
+          className="bg-gray-300 p-1 size-[30px] aspect-square rounded-full z-10"
+          onClick={() => {
+            setDestination(origin);
+            setOrigin(destination);
+          }}
+        >
+          <IconSearchEngine.Swap className="text-xl text-black" />
+        </Button>
+      </div>
       {/* To Input */}
-      <div className="flex flex-col items-center relative">
+      <div className=" h-auto rounded-lg">
         <FlightInput
           label="To"
           id="to"
@@ -164,12 +164,14 @@ const OneWayInputs = () => {
             setDestination(option);
           }}
         />
-        {/* Vertical Line */}
-        <div className="absolute right-[-25px] top-0 bottom-0 w-[1px] bg-slate-700"></div>
+      </div>
+      {/* Vertical Line */}
+      <div className="hidden lg:flex justify-center items-center h-auto">
+        <div className="border-l-2 w-2 border-gray-500 h-16"></div>
       </div>
 
       {/* Date Picker */}
-      <div className="flex flex-col items-center">
+      <div className="h-auto rounded-lg">
         <PickDate
           date={departureDate}
           setDate={setDepartureDate}
@@ -178,8 +180,8 @@ const OneWayInputs = () => {
       </div>
 
       {/* Submit Button */}
-      <div className="flex max-w-full justify-center items-center">
-        <Button className="px-12 py-4 text-lg rounded-full bg-primary-main text-white">
+      <div className="flex items-center justify-center h-auto">
+        <Button className="px-12 py-2 text-lg rounded-full bg-primary-main text-white">
           Submit
         </Button>
       </div>

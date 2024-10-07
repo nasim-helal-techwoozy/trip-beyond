@@ -18,11 +18,11 @@ const FormFooter: React.FC<FormFooterProps> = ({
       <div className="text-sm text-gray-600 flex items-center">
         <p>{text} </p>
         <Link href={linkHref}>
-          <p className="font-bold ml-1">{linkText}</p>
+          <span className="font-bold ml-1">{linkText}</span>
         </Link>
       </div>
       <Link href={forgetPassHref}>
-        <p className="font-bold ml-1 text-xs">Forgot Password?</p>
+        <span className="font-bold ml-1 text-xs">Forgot Password?</span>
       </Link>
     </div>
   );

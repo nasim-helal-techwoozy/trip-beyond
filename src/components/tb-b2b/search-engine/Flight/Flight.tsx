@@ -16,7 +16,7 @@ const Flight = () => {
           <TabItem
             key={nanoid()}
             value={tab.toLowerCase().split(" ").join("-")}
-            className="capitalize"
+            className="capitalize text-nowrap text-xs lg:text-md"
           >
             {tab}
           </TabItem>

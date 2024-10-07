@@ -28,7 +28,7 @@ const MultiCity = () => {
           <MulticityInputs />
 
           <Button
-            className="absolute top-2 right-1 bg-transparent text-white text-xs px-2 py-1 rounded-full"
+            className="absolute top-8 right-1 bg-gray-300 text-white text-xs px-3 py-1 rounded-full"
             onClick={() => handleRemoveNewSearchInputs(id)}
           >
             ✖
@@ -44,6 +44,12 @@ const MultiCity = () => {
         <IconSearchEngine.AddNew className="mr-2 mt-1" />
         Add Another Flight
       </Button>
+      {/* Submit Button */}
+      <div className="flex max-w-full justify-end items-center">
+        <Button className="px-12 py-4 text-lg rounded-full bg-primary-main text-white">
+          Submit
+        </Button>
+      </div>
     </>
   );
 };
