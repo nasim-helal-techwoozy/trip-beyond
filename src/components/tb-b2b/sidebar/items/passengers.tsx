@@ -4,6 +4,7 @@ import {
   SidebarDropdownList,
   SidebarItem,
 } from "keep-react";
+import Link from "next/link";
 import { CaretDown, Checks, Plus, Users } from "phosphor-react";
 import React from "react";
 
@@ -26,11 +27,15 @@ const Passengers = () => {
         <SidebarDropdownList>
           <SidebarItem>
             <Plus size={25} />
-            Add Passenger
+            <Link href="/passengers/add-passenger">
+              <span>Add Passenger</span>
+            </Link>
           </SidebarItem>
           <SidebarItem>
             <Checks size={25} />
-            Quick Passenger
+            <Link href="/passengers/quick-passenger">
+              <span>Quick Passenger</span>
+            </Link>
           </SidebarItem>
         </SidebarDropdownList>
       </SidebarDropdown>
