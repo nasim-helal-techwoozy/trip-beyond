@@ -53,7 +53,7 @@ const SidebarExpand = ({ className }: any) => {
           <PartialPayment />
           <SidebarItem>
             <ClockCounterClockwise size={25} />
-            <Link href="/search">
+            <Link href="/transaction-history">
               <span>Transaction history</span>
             </Link>
           </SidebarItem>
