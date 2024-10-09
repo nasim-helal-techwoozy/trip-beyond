@@ -48,6 +48,7 @@ export const UserSignin = () => {
           Enter
         </Button>
       </ModalClose>
+      
       <FormFooter
         text="Not an user?"
         linkText="Register"

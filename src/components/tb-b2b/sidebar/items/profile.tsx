@@ -26,13 +26,13 @@ const Profile = () => {
         <SidebarDropdownList>
           <SidebarItem>
             <User size={25} />
-            <Link href="/profile/user">
+            <Link href="/profile">
               <span>User</span>
             </Link>
           </SidebarItem>
           <SidebarItem>
             <HourglassMedium size={25} />
-            <Link href="/profile/company">
+            <Link href="/profile/update">
               <span>Company</span>
             </Link>
           </SidebarItem>
