@@ -30,27 +30,29 @@ const OneWayInputs = () => {
   useEffect(() => {
     /**====================ORIGIN AIRPORT LIST======================== */
     const filteredOriginLists = defaultAirports.filter(
-      (item) => item.value !== destination.value // Exclude the selected destination
+      (item) => item.value !== destination.value && item.label !== null // Exclude destination & null label
     );
     setOriginAirportLists(filteredOriginLists);
 
     //rest
     const filteredRestOriginLists = restAirports.filter(
-      (item) => item.value !== destination.value // Exclude the selected destination
+      (item) => item.value !== destination.value && item.label !== null // Exclude destination & null label
     );
     setRestOriginAirportLists(filteredRestOriginLists);
 
     /**====================DESTINATION AIRPORT LIST=================== */
     const filteredDestinationLists = defaultAirports.filter(
-      (item) => item.value !== origin.value // Exclude the selected origin
+      (item) => item.value !== origin.value && item.label !== null // Exclude origin & null label
     );
 
     setDestinationAirportLists(filteredDestinationLists);
+
     //rest
     const filteredRestDestinationLists = restAirports.filter(
-      (item) => item.value !== origin.value // Exclude the selected destination
+      (item) => item.value !== origin.value && item.label !== null // Exclude origin & null label
     );
     setRestDestinationAirportLists(filteredRestDestinationLists);
+
     /**===============ORIGIN SEARCH KEY========================== */
     if (originSearchKey) {
       const newOriginLists = filteredOriginLists.filter((item: any) => {
@@ -181,7 +183,12 @@ const OneWayInputs = () => {
 
       {/* Submit Button */}
       <div className="flex items-center justify-center h-auto">
-        <Button className="px-12 py-2 text-lg rounded-full bg-primary-main text-white">
+        <Button
+          onClick={() => {
+            console.log(origin, destination, departureDate);
+          }}
+          className="px-12 py-2 text-lg rounded-full bg-primary-main text-white"
+        >
           Submit
         </Button>
       </div>

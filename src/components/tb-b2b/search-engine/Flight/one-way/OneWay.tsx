@@ -1,9 +1,9 @@
 "use client";
 
-import OneWayInputs from "./OneWayInputs";
+import FlightSearch from "@/components/common/flight-search/FlightSearch";
 
 const OneWay = () => {
-  return <OneWayInputs />;
+  return <FlightSearch hasReturnDate />;
 };
 
 export default OneWay;

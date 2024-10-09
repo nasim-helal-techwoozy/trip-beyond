@@ -7,7 +7,11 @@ import { useEffect, useState } from "react";
 import FlightInput from "./FlightInput";
 import PickDate from "./PickDate";
 
-const FlightSearch = () => {
+interface PropsTypes {
+  hasReturnDate?: boolean;
+}
+
+const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
   const { setOrigin, setDestination, setDepartureDate, setReturnDate } =
     useStoreActions((actions: any) => actions.flightSearch);
   const { origin, destination, departureDate, returnDate } = useStoreState(
@@ -114,53 +118,67 @@ const FlightSearch = () => {
   ]);
 
   return (
-    <div className="grid grid-cols-4 gap-5">
-      <FlightInput
-        label="From"
-        id="from"
-        options={
-          originAirportLists.length ? originAirportLists : defaultAirports
-        }
-        value={origin}
-        onInputChange={(item: string) => {
-          setOriginSearchKey(item?.toLowerCase());
-        }}
-        onChange={(option: any) => {
-          setOrigin(option);
-        }}
-      />
-      <Button
-        className="absolute left-1/4 -translate-x-[65%] top-1/2 -translate-y-[20%] p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-secondary-main"
-        onClick={() => {
-          setDestination(origin);
-          setOrigin(destination);
-        }}
-      >
-        <IconSearchEngine.Swap className="text-xl" />
-      </Button>
-      <FlightInput
-        label="To"
-        id="to"
-        options={
-          destinationAirportLists.length
-            ? destinationAirportLists
-            : defaultAirports
-        }
-        value={destination}
-        onInputChange={(item: string) => {
-          setDestinationSearchKey(item?.toLowerCase());
-        }}
-        onChange={(option: any) => {
-          setDestination(option);
-        }}
-      />
+    <div className="space-y-5 md:space-y-0 md:flex items-center gap-5">
+      <div className="relative md:flex  md:flex-row md:items-center ">
+        <FlightInput
+          className="flex-1"
+          label="From"
+          id="from"
+          options={
+            originAirportLists.length ? originAirportLists : defaultAirports
+          }
+          value={origin}
+          onInputChange={(item: string) => {
+            setOriginSearchKey(item?.toLowerCase());
+          }}
+          onChange={(option: any) => {
+            setOrigin(option);
+          }}
+        />
 
-      <PickDate
-        date={departureDate}
-        setDate={setDepartureDate}
-        label="Departure"
-      />
-      <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
+        <Button
+          type="button"
+          className="absolute md:relative right-0 top-1/2 p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-secondary-main"
+          onClick={() => {
+            setDestination(origin);
+            setOrigin(destination);
+          }}
+        >
+          <IconSearchEngine.Swap className="text-xl" />
+        </Button>
+
+        <FlightInput
+          className="flex-1"
+          label="To"
+          id="to"
+          options={
+            destinationAirportLists.length
+              ? destinationAirportLists
+              : defaultAirports
+          }
+          value={destination}
+          onInputChange={(item: string) => {
+            setDestinationSearchKey(item?.toLowerCase());
+          }}
+          onChange={(option: any) => {
+            setDestination(option);
+          }}
+        />
+      </div>
+
+      <div className="relative space-y-2 md:space-y-0 md:flex md:gap-5 md:items-center *:flex-1">
+        <PickDate
+          date={departureDate}
+          setDate={setDepartureDate}
+          label="Departure"
+        />
+
+        {hasReturnDate && (
+          <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
+        )}
+      </div>
+
+      <Button className="ml-auto">submit</Button>
     </div>
   );
 };

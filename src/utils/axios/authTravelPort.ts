@@ -1,42 +1,26 @@
-export async function authTravelPort() {
-  const url = "https://oauth.pp.travelport.com/oauth/oauth20/token";
+import axios from "axios";
 
-  // Pre-request script (e.g., logging, setting dynamic headers)
-  const headers = new Headers();
-  headers.append("Cache-Control", "no-cache");
-  headers.append("Content-Type", "application/x-www-form-urlencoded");
+const travelport = axios.create({
+  baseURL: "https://oauth.pp.travelport.com/oauth/oauth20",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+});
 
-  const body = new URLSearchParams();
-  body.append("grant_type", "password");
-  body.append("username", "TP52936629"); // use environment variables or dynamic data here
-  body.append("password", "hWCDGORG");
-  body.append("client_id", "tUz1fhk0BW5Rk4ezBsLe8Xl0YXWtslcIZOygfWVg");
-  body.append(
-    "client_secret",
-    "620d0ef58b70e3665386f75cd5703e40fd5e8a0193038b7087fe3700383e83ce",
-  );
-  body.append("scope", "openid");
-
-  const options = {
-    method: "POST",
-    headers: headers,
-    body: body,
-  };
+// Function to get OAuth token
+export const getToken = async () => {
+  const data = new URLSearchParams();
+  data.append("grant_type", "password");
+  data.append("username", process.env.USERNAME as string);
+  data.append("password", process.env.PASSWORD as string);
+  data.append("client_id", process.env.CLIENT_ID as string);
+  data.append("client_secret", process.env.CLIENT_SECRET as string);
+  data.append("scope", "openid");
 
   try {
-    // Make the API request
-    const response = await fetch(url, options);
-
-    // Post-request script (e.g., processing response, logging)
-    if (!response.ok) {
-      throw new Error(`Request failed with status ${response.status}`);
-    }
-
-    const data = await response.json();
-    console.log("Token fetched successfully:", data);
-
-    return data;
+    const response = await travelport.post("/token", data);
+    console.log("Access Token:", response.data);
   } catch (error) {
     console.error("Error fetching token:", error);
   }
-}
+};

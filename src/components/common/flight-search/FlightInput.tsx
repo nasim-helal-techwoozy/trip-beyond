@@ -11,7 +11,7 @@ const customStyles = {
     width: "100%",
     height: "60px",
     boxShadow: "none",
-    border: "0px solid #0C254D",
+    border: "1px solid #0C254D",
     "&:hover": {
       // border: "0px solid #0C254D",
     },
@@ -36,10 +36,11 @@ const FlightInput = ({
   options,
   onInputChange,
   label,
+  className,
   ...restInputs
 }: any) => {
   return (
-    <div>
+    <div className={className}>
       {label && <Label className="text-primary-500">{label}</Label>}
       <Select
         options={options}

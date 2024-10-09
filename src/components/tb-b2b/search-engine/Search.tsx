@@ -37,7 +37,7 @@ const Search: React.FC = () => {
           ))}
         </TabList>
 
-        <div className="bg-white dark:bg-secondary-main m-5 p-7 rounded-sm lg:rounded-3xl">
+        <div className="bg-white m-5 p-7 rounded-sm lg:rounded-3xl">
           <TabContent value="flights">
             <Flight />
           </TabContent>
