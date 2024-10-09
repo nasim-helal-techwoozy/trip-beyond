@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
-import MulticityInputs from "./MulticityInputs";
-import { nanoid } from "nanoid";
-import { Button } from "keep-react";
+import FlightSearch from "@/components/common/flight-search/FlightSearch";
 import { IconSearchEngine } from "@/interfaces/icons";
+import { Button } from "keep-react";
+import { nanoid } from "nanoid";
+import { useState } from "react";
 
 const MultiCity = () => {
   const [newSearch, setNewSearch] = useState<string[]>([]);
@@ -19,13 +19,13 @@ const MultiCity = () => {
   return (
     <>
       {/* Always show two Multicity Inputs */}
-      <MulticityInputs key={nanoid()} />
-      <MulticityInputs key={nanoid()} />
+      <FlightSearch />
+      <FlightSearch />
 
       {/* Dynamically added Multicity Inputs with their own cross button */}
       {newSearch.map((id) => (
         <div key={id} className="relative">
-          <MulticityInputs />
+          <FlightSearch />
 
           <Button
             className="absolute top-8 right-1 bg-gray-300 text-white text-xs px-3 py-1 rounded-full"

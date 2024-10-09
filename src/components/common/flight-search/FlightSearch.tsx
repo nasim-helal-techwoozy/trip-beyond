@@ -9,9 +9,10 @@ import PickDate from "./PickDate";
 
 interface PropsTypes {
   hasReturnDate?: boolean;
+  hasSubmitButton?:boolean;
 }
 
-const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
+const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate, hasSubmitButton }) => {
   const { setOrigin, setDestination, setDepartureDate, setReturnDate } =
     useStoreActions((actions: any) => actions.flightSearch);
   const { origin, destination, departureDate, returnDate } = useStoreState(
@@ -177,8 +178,8 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
           <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
         )}
       </div>
-
-      <Button className="ml-auto">submit</Button>
+        {hasSubmitButton && (   <Button className="ml-auto">submit</Button>)}
+   
     </div>
   );
 };
