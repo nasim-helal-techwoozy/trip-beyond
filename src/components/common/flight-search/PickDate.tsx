@@ -19,7 +19,7 @@ const PickDate = ({ date, setDate, label }: any) => {
   const year = date ? new Date(date).getFullYear() : "";
 
   return (
-    <div>
+    <div className="flex-1">
       <Label className="text-primary-500">{label}</Label>
       <Popover showArrow={false} placement="bottom-start">
         <PopoverAction asChild>

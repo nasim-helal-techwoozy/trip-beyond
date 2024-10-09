@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import ProvideStore from "@/redux/ProvideStore";
 import { ThemeProvider } from "@/themes/theme-provider";
 import { ToastWrapper } from "keep-react";
-import ProvideStore from "@/redux/ProvideStore";
-import "slick-carousel/slick/slick.css";
+import type { Metadata } from "next";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Trip Beyond",

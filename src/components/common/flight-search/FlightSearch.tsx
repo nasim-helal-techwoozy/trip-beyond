@@ -1,63 +1,44 @@
 "use client";
-import { defaultAirports, restAirports } from "@/assets/data/airports";
+import { defaultAirports } from "@/assets/data/airports";
 import { IconSearchEngine } from "@/interfaces/icons";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { Button } from "keep-react";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import FlightInput from "./FlightInput";
 import PickDate from "./PickDate";
+import { Spinner } from "keep-react";
 
 interface PropsTypes {
   hasReturnDate?: boolean;
-  hasSubmitButton?:boolean;
+  hasSubmitButton?: boolean;
 }
 
-const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate, hasSubmitButton }) => {
+const FlightSearch: React.FC<PropsTypes> = ({
+  hasReturnDate,
+  hasSubmitButton,
+}) => {
   const { setOrigin, setDestination, setDepartureDate, setReturnDate } =
     useStoreActions((actions: any) => actions.flightSearch);
+
+  const { oneWaySearch } = useStoreActions((actions: any) => actions.oneWay);
+  const { response, error, isLoading } = useStoreState(
+    (state: any) => state.oneWay
+  );
+
   const { origin, destination, departureDate, returnDate } = useStoreState(
     (state: any) => state.flightSearch
   );
-
   const [originSearchKey, setOriginSearchKey] = useState("");
   const [destinationSearchKey, setDestinationSearchKey] = useState("");
 
-  const [originAirportLists, setOriginAirportLists] = useState<any>([]);
-  const [destinationAirportLists, setDestinationAirportLists] = useState<any>(
-    []
-  );
-
-  const [restOriginAirportLists, setRestOriginAirportLists] = useState<any>([]);
-  const [restDestinationAirportLists, setRestDestinationAirportLists] =
-    useState<any>([]);
-
-  useEffect(() => {
-    /**====================ORIGIN AIRPORT LIST======================== */
-    const filteredOriginLists = defaultAirports.filter(
-      (item) => item.value !== destination.value // Exclude the selected destination
-    );
-    setOriginAirportLists(filteredOriginLists);
-
-    //rest
-    const filteredRestOriginLists = restAirports.filter(
-      (item) => item.value !== destination.value // Exclude the selected destination
-    );
-    setRestOriginAirportLists(filteredRestOriginLists);
-
-    /**====================DESTINATION AIRPORT LIST=================== */
-    const filteredDestinationLists = defaultAirports.filter(
-      (item) => item.value !== origin.value // Exclude the selected origin
+  // Memoize filtered airport lists
+  const originAirportLists = useMemo(() => {
+    const filteredDefault = defaultAirports.filter(
+      (item) => item.value !== destination.value // Exclude selected destination
     );
 
-    setDestinationAirportLists(filteredDestinationLists);
-    //rest
-    const filteredRestDestinationLists = restAirports.filter(
-      (item) => item.value !== origin.value // Exclude the selected destination
-    );
-    setRestDestinationAirportLists(filteredRestDestinationLists);
-    /**===============ORIGIN SEARCH KEY========================== */
     if (originSearchKey) {
-      const newOriginLists = filteredOriginLists.filter((item: any) => {
+      return filteredDefault.filter((item) => {
         const label = item?.label?.toLowerCase();
         const value = item?.value?.toLowerCase();
         return (
@@ -65,62 +46,75 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate, hasSubmitButton }) 
           value?.startsWith(originSearchKey)
         );
       });
-
-      setOriginAirportLists(newOriginLists);
-
-      if (newOriginLists.length === 0) {
-        const myNewLists = restOriginAirportLists.filter((item: any) => {
-          const label = item?.label?.toLowerCase();
-          const value = item?.value?.toLowerCase();
-          return (
-            label?.startsWith(originSearchKey) ||
-            value?.startsWith(originSearchKey)
-          );
-        });
-
-        setOriginAirportLists(myNewLists);
-      }
     }
 
-    /**===============DESTINATION SEARCH KEY====================== */
+    return filteredDefault;
+  }, [originSearchKey, destination.value]);
+
+  const destinationAirportLists = useMemo(() => {
+    const filteredDefault = defaultAirports.filter(
+      (item) => item.value !== origin.value // Exclude selected origin
+    );
+
     if (destinationSearchKey) {
-      const newDestinationLists = filteredDestinationLists.filter(
-        (item: any) => {
-          const label = item?.label?.toLowerCase();
-          const value = item?.value?.toLowerCase();
-          return (
-            label?.startsWith(destinationSearchKey) ||
-            value?.startsWith(destinationSearchKey)
-          );
-        }
-      );
-      setDestinationAirportLists(newDestinationLists);
-
-      if (newDestinationLists.length === 0) {
-        const myNewLists = restDestinationAirportLists.filter((item: any) => {
-          const label = item?.label?.toLowerCase();
-          const value = item?.value?.toLowerCase();
-          return (
-            label?.startsWith(destinationSearchKey) ||
-            value?.startsWith(destinationSearchKey)
-          );
-        });
-
-        setDestinationAirportLists(myNewLists);
-      }
+      return filteredDefault.filter((item) => {
+        const label = item?.label?.toLowerCase();
+        const value = item?.value?.toLowerCase();
+        return (
+          label?.startsWith(destinationSearchKey) ||
+          value?.startsWith(destinationSearchKey)
+        );
+      });
     }
-  }, [
-    originSearchKey,
-    destinationSearchKey,
-    destination.value,
-    origin.value,
-    restOriginAirportLists,
-    restDestinationAirportLists,
-  ]);
+
+    return filteredDefault;
+  }, [destinationSearchKey, origin.value]);
+
+  // Handle swapping origin and destination
+  const handleFlightSearch = () => {
+    oneWaySearch({
+      CatalogProductOfferingsQueryRequest: {
+        CatalogProductOfferingsRequest: {
+          "@type": "CatalogProductOfferingsRequestAir",
+          maxNumberOfUpsellsToReturn: 4,
+          contentSourceList: ["GDS"],
+          PassengerCriteria: [
+            {
+              "@type": "PassengerCriteria",
+              number: 1,
+              passengerTypeCode: "ADT",
+            },
+          ],
+          SearchCriteriaFlight: [
+            {
+              "@type": "SearchCriteriaFlight",
+              departureDate: "2024-10-15",
+              From: {
+                value: "SYD",
+              },
+              To: {
+                value: "MEL",
+              },
+            },
+          ],
+          SearchModifiersAir: {
+            "@type": "SearchModifiersAir",
+            CarrierPreference: [
+              {
+                "@type": "CarrierPreference",
+                preferenceType: "Preferred",
+                carriers: ["QF"],
+              },
+            ],
+          },
+        },
+      },
+    });
+  };
 
   return (
-    <div className="space-y-5 md:space-y-0 md:flex items-center gap-5">
-      <div className="relative md:flex  md:flex-row md:items-center ">
+    <div className="space-y-5 md:space-y-0 md:flex  items-center gap-5">
+      <div className="relative flex-1 md:flex md:flex-row md:items-center">
         <FlightInput
           className="flex-1"
           label="From"
@@ -167,7 +161,7 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate, hasSubmitButton }) 
         />
       </div>
 
-      <div className="relative space-y-2 md:space-y-0 md:flex md:gap-5 md:items-center *:flex-1">
+      <div className="relative space-y-2 md:space-y-0 md:flex md:gap-5 md:items-center flex-1">
         <PickDate
           date={departureDate}
           setDate={setDepartureDate}
@@ -178,9 +172,16 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate, hasSubmitButton }) 
           <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
         )}
       </div>
-        {hasSubmitButton && (   <Button className="ml-auto">submit</Button>)}
-   
+      {hasSubmitButton && (
+        <Button
+          onClick={handleFlightSearch}
+          className="ml-auto flex items-center gap-2"
+        >
+          {isLoading && <Spinner color="warning" size="sm" />}search
+        </Button>
+      )}
     </div>
   );
 };
+
 export default FlightSearch;
