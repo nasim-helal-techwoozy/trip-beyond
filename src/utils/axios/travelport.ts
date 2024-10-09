@@ -1,38 +1,34 @@
 import axios from "axios";
-import {
-  accessGroup,
-  travelPortAuthToken,
-  travelportBaseUrl,
-} from "../../../env";
+import Cookies from "js-cookie";
 
 const travelport = axios.create({
-  baseURL: travelportBaseUrl,
+  baseURL: process.env.NEXT_PUBLIC_TB_BASEURL,
   headers: {
-    // "Accept-Encoding": "gzip, deflate",
     "Cache-Control": "no-cache",
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: `Bearer ${travelPortAuthToken}`,
-    XAUTH_TRAVELPORT_ACCESSGROUP: accessGroup,
+    Authorization: `Bearer ${Cookies.get("t_token")}`,
+    XAUTH_TRAVELPORT_ACCESSGROUP: process.env.NEXT_PUBLIC_ACCESS_GROUP,
   },
 });
 
 // An interceptor to dynamically set the Authorization token and Travelport Access Group
 travelport.interceptors.request.use(
-  (config: any) => {
-    if (travelPortAuthToken) {
-      config.headers.Authorization = `Bearer ${travelPortAuthToken}`;
+  (config) => {
+    if (Cookies.get("t_token")) {
+      config.headers.Authorization = `Bearer ${Cookies.get("t_token")}`;
     }
 
-    if (accessGroup) {
-      config.headers["XAUTH_TRAVELPORT_ACCESSGROUP"] = accessGroup;
+    if (process.env.NEXT_PUBLIC_ACCESS_GROUP) {
+      config.headers["XAUTH_TRAVELPORT_ACCESSGROUP"] =
+        process.env.NEXT_PUBLIC_ACCESS_GROUP;
     }
 
     return config;
   },
-  (error: Error) => {
+  (error) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 export default travelport;

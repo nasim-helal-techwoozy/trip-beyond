@@ -1,7 +1,7 @@
-import RoundTripInputs from "./RoundTripInputs";
+import FlightSearch from "@/components/common/flight-search/FlightSearch";
 
 const RoundTrip = () => {
-  return <RoundTripInputs />;
+  return <FlightSearch />;
 };
 
 export default RoundTrip;

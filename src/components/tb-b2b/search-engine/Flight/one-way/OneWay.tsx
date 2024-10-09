@@ -1,5 +1,3 @@
-"use client";
-
 import FlightSearch from "@/components/common/flight-search/FlightSearch";
 
 const OneWay = () => {
