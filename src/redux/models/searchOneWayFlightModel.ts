@@ -1,5 +1,6 @@
 import travelport from "@/utils/axios/travelport";
 import { action, Action, thunk, Thunk } from "easy-peasy";
+import { toast } from "keep-react";
 
 interface SearchModel {
   isLoading: boolean;
@@ -34,13 +35,21 @@ export const searchOneWayFlightModel: SearchModel = {
     try {
       const res = await travelport.post(
         "/catalog/search/catalogproductofferings",
-        payload,
+        payload
       );
+
+      let tpError = res?.data?.CatalogProductOfferingsResponse?.Result?.Error;
+      if (tpError) {
+        actions.setError(tpError[0].Message);
+        tpError?.map((err: any) => {
+          toast.warning(err.Message);
+        });
+      }
+
       actions.setResponse(res.data); // Set response data
     } catch (err: any) {
-      console.log(err);
       actions.setError(
-        err.response?.data?.message || "An error occurred while searching",
+        err.response?.data?.message || "An error occurred while searching"
       );
     } finally {
       actions.setIsLoading(false);

@@ -6,12 +6,17 @@ import { Button } from "keep-react";
 import { useMemo, useState } from "react";
 import FlightInput from "./FlightInput";
 import PickDate from "./PickDate";
+import { Spinner } from "keep-react";
 
 interface PropsTypes {
   hasReturnDate?: boolean;
+  hasSubmitButton?: boolean;
 }
 
-const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
+const FlightSearch: React.FC<PropsTypes> = ({
+  hasReturnDate,
+  hasSubmitButton,
+}) => {
   const { setOrigin, setDestination, setDepartureDate, setReturnDate } =
     useStoreActions((actions: any) => actions.flightSearch);
 
@@ -23,7 +28,6 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
   const { origin, destination, departureDate, returnDate } = useStoreState(
     (state: any) => state.flightSearch
   );
-
   const [originSearchKey, setOriginSearchKey] = useState("");
   const [destinationSearchKey, setDestinationSearchKey] = useState("");
 
@@ -67,9 +71,45 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
   }, [destinationSearchKey, origin.value]);
 
   // Handle swapping origin and destination
-  const handleSwap = () => {
-    setDestination(origin);
-    setOrigin(destination);
+  const handleFlightSearch = () => {
+    oneWaySearch({
+      CatalogProductOfferingsQueryRequest: {
+        CatalogProductOfferingsRequest: {
+          "@type": "CatalogProductOfferingsRequestAir",
+          maxNumberOfUpsellsToReturn: 4,
+          contentSourceList: ["GDS"],
+          PassengerCriteria: [
+            {
+              "@type": "PassengerCriteria",
+              number: 1,
+              passengerTypeCode: "ADT",
+            },
+          ],
+          SearchCriteriaFlight: [
+            {
+              "@type": "SearchCriteriaFlight",
+              departureDate: "2024-10-15",
+              From: {
+                value: "SYD",
+              },
+              To: {
+                value: "MEL",
+              },
+            },
+          ],
+          SearchModifiersAir: {
+            "@type": "SearchModifiersAir",
+            CarrierPreference: [
+              {
+                "@type": "CarrierPreference",
+                preferenceType: "Preferred",
+                carriers: ["QF"],
+              },
+            ],
+          },
+        },
+      },
+    });
   };
 
   return (
@@ -94,7 +134,10 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
         <Button
           type="button"
           className="absolute md:relative right-0 top-1/2 p-1 size-[30px] aspect-square rounded-full z-10 ring-1 ring-secondary-main"
-          onClick={handleSwap}
+          onClick={() => {
+            setDestination(origin);
+            setOrigin(destination);
+          }}
         >
           <IconSearchEngine.Swap className="text-xl" />
         </Button>
@@ -129,55 +172,14 @@ const FlightSearch: React.FC<PropsTypes> = ({ hasReturnDate }) => {
           <PickDate date={returnDate} setDate={setReturnDate} label="Return" />
         )}
       </div>
-
-      <Button
-        className="ml-auto"
-        onClick={() => {
-          // Ensure you have access to the `oneWaySearch` function from your model
-          oneWaySearch({
-            CatalogProductOfferingsQueryRequest: {
-              CatalogProductOfferingsRequest: {
-                "@type": "CatalogProductOfferingsRequestAir",
-                maxNumberOfUpsellsToReturn: 4,
-                contentSourceList: ["GDS"],
-                PassengerCriteria: [
-                  {
-                    "@type": "PassengerCriteria",
-                    number: 1,
-                    passengerTypeCode: "ADT",
-                  },
-                ],
-                SearchCriteriaFlight: [
-                  {
-                    "@type": "SearchCriteriaFlight",
-                    departureDate: "2024-10-15",
-                    From: {
-                      value: "ORD",
-                    },
-                    To: {
-                      value: "DEN",
-                    },
-                  },
-                ],
-                SearchModifiersAir: {
-                  "@type": "SearchModifiersAir",
-                  CarrierPreference: [
-                    {
-                      "@type": "CarrierPreference",
-                      preferenceType: "Preferred",
-                      carriers: ["AA"],
-                    },
-                  ],
-                },
-              },
-            },
-          });
-          console.log(origin, destination, departureDate, returnDate);
-        }}
-      >
-        {isLoading && "loading..."}
-        Submit
-      </Button>
+      {hasSubmitButton && (
+        <Button
+          onClick={handleFlightSearch}
+          className="ml-auto flex items-center gap-2"
+        >
+          {isLoading && <Spinner color="warning" size="sm" />}search
+        </Button>
+      )}
     </div>
   );
 };

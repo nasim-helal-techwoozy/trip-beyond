@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 const travelport = axios.create({
   baseURL: process.env.NEXT_PUBLIC_TB_BASEURL,
   headers: {
-    "Cache-Control": "no-cache",
     Accept: "application/json",
     "Content-Type": "application/json",
     Authorization: `Bearer ${Cookies.get("t_token")}`,
