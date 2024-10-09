@@ -110,7 +110,7 @@ export const IconCompany = { authentication: TbLogin2 };
 export const IconSettings = { authentication: TbLogin2 };
 export const IconProfile = { authentication: TbLogin2 };
 export const IconAuthentication = {
-  user: FaUser,
+  User: FaUser,
   agent: FaUserShield,
   Facebook: FaFacebookF,
   Google: FaGoogle,
