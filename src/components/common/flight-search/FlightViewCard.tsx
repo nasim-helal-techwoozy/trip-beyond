@@ -20,7 +20,7 @@ const FlightViewCard = () => {
       <div>
         <h1>Trip Details</h1>
         <div className="flex items-center gap-5 overflow-x-auto">
-          {[1, 2, 3, 4, 5, 6, 7].map((item) => {
+          {[1, 2, 3, 4, 5, 6, 7].map(() => {
             return (
               <div
                 key={nanoid()}
