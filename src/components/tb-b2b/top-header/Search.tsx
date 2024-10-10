@@ -10,6 +10,7 @@ const Search = () => {
       <KeepInput
         placeholder="Search anything..."
         className="border ps-10"
+        value={search}
         onChange={(data) => setSearch(data)}
       />
       <InputIcon>

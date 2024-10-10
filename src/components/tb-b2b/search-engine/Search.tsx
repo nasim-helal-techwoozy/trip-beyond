@@ -9,7 +9,6 @@ import GroupRequest from "./GroupRequest/GroupRequest";
 import Holiday from "./Holiday/Holiday";
 import Hotels from "./Hotels/Hotels";
 import Visa from "./Visa/Visa";
-import { Suspense } from "react";
 
 type MenuItem = {
   label: string;

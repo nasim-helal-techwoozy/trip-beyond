@@ -1,9 +1,5 @@
-type Props = {}
-
-const ProfileUpdate = (props: Props) => {
-  return (
-    <div>ProfileUpdate</div>
-  )
+const ProfileUpdate = () => {
+  return <div>ProfileUpdate</div>;
 };
 
 export default ProfileUpdate;

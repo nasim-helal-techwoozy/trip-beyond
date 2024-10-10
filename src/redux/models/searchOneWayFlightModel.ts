@@ -38,7 +38,7 @@ export const searchOneWayFlightModel: SearchModel = {
         payload
       );
 
-      let tpError = res?.data?.CatalogProductOfferingsResponse?.Result?.Error;
+      const tpError = res?.data?.CatalogProductOfferingsResponse?.Result?.Error;
       if (tpError) {
         actions.setError(tpError[0].Message);
         tpError?.map((err: any) => {

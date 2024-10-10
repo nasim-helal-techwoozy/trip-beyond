@@ -10,9 +10,9 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const FlightViewCard = () => {
   const { response } = useStoreState((state: any) => state.oneWay);
 
-  let ReferenceList = response?.CatalogProductOfferingsResponse.ReferenceList;
+  const ReferenceList = response?.CatalogProductOfferingsResponse.ReferenceList;
 
-  let refFlights = ReferenceList?.[0].Flight;
+  const refFlights = ReferenceList?.[0].Flight;
 
   return (
     <div className="space-y-5">
