@@ -1,11 +1,8 @@
 import { Button } from "keep-react";
 
-type Props = {}
-
-const Profile = (props: Props) => {
+const Profile = () => {
   return (
     <div className="flex flex-col px-5 py-2">
-
       <h1 className="bg-red-400 ">Profile</h1>
       <div>
         <p>User Name:</p>
@@ -19,7 +16,7 @@ const Profile = (props: Props) => {
       </div>
       <Button>Update</Button>
     </div>
-  )
+  );
 };
 
 export default Profile;

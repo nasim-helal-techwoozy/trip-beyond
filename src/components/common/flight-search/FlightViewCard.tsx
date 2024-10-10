@@ -5,6 +5,7 @@ import { toReadableDate } from "@/utils/toReadableDate";
 import { useStoreState } from "easy-peasy";
 import { Button, Popover, PopoverAction, PopoverContent } from "keep-react";
 import { nanoid } from "nanoid";
+import Image from "next/image";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const FlightViewCard = () => {
@@ -71,7 +72,7 @@ const FlightViewCard = () => {
             className="grid grid-cols-5 border border-gray-300 p-3 rounded-2xl *:flex *:flex-col *:justify-center"
           >
             <div className="col-span-1">
-              <img
+              <Image
                 src="https://picsum.photos/200/300"
                 alt="..."
                 className="size-5"

@@ -62,10 +62,6 @@ export const MasterCard = () => {
   );
 };
 // OnlineDeposit.tsx
-import { Buildings, Gear, ShieldWarning, User } from "phosphor-react";
-import { Tabs, TabList, TabItem, TabContent } from "keep-react";
-import { Bank } from "./Bank";
-import { MFS } from "./MFS";
 
 // AmericanExpress.tsx
 export const AmericanExpress = () => {

@@ -22,9 +22,7 @@ const FlightSearch: React.FC<PropsTypes> = ({
     useStoreActions((actions: any) => actions.flightSearch);
 
   const { oneWaySearch } = useStoreActions((actions: any) => actions.oneWay);
-  const { response, error, isLoading } = useStoreState(
-    (state: any) => state.oneWay
-  );
+  const { isLoading } = useStoreState((state: any) => state.oneWay);
 
   const { origin, destination, departureDate, returnDate } = useStoreState(
     (state: any) => state.flightSearch
