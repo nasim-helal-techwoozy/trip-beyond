@@ -7,6 +7,7 @@ import { useMemo, useState } from "react";
 import FlightInput from "./FlightInput";
 import PickDate from "./PickDate";
 import { Spinner } from "keep-react";
+import formatDate from "@/utils/formatDate";
 
 interface PropsTypes {
   hasReturnDate?: boolean;
@@ -88,25 +89,25 @@ const FlightSearch: React.FC<PropsTypes> = ({
           SearchCriteriaFlight: [
             {
               "@type": "SearchCriteriaFlight",
-              departureDate: "2024-10-15",
+              departureDate: formatDate(departureDate),
               From: {
-                value: "SYD",
+                value: origin.value,
               },
               To: {
-                value: "MEL",
+                value: destination.value,
               },
             },
           ],
-          SearchModifiersAir: {
-            "@type": "SearchModifiersAir",
-            CarrierPreference: [
-              {
-                "@type": "CarrierPreference",
-                preferenceType: "Preferred",
-                carriers: ["QF"],
-              },
-            ],
-          },
+          // SearchModifiersAir: {
+          //   "@type": "SearchModifiersAir",
+          //   CarrierPreference: [
+          //     {
+          //       "@type": "CarrierPreference",
+          //       preferenceType: "Preferred",
+          //       carriers: ["QF"],
+          //     },
+          //   ],
+          // },
         },
       },
     });
