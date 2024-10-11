@@ -76,16 +76,16 @@ const FlightViewCard = () => {
       <div className="w-full h-[1px] bg-gray-300"></div>
       {CatalogProductOffering?.map((item: any) => {
         return item?.ProductBrandOptions?.map((option: any) => {
-          let flightRefs = option.flightRefs;
-          let ProductBrandOffering = option.ProductBrandOffering;
+          const flightRefs = option.flightRefs;
+          const ProductBrandOffering = option.ProductBrandOffering;
 
           return flightRefs.map((ref: any) => {
-            let targetFlight = refFlights.find(
+            const targetFlight = refFlights.find(
               (targetFlight: any) => targetFlight.id === ref
             );
 
             return ProductBrandOffering.map((offer: any) => {
-              let price = offer.Price;
+              const price = offer.Price;
 
               return (
                 <OneWayCard
