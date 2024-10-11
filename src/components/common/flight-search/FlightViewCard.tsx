@@ -18,13 +18,16 @@ const FlightViewCard = () => {
   const { response } = useStoreState((state: any) => state.oneWay);
 
   const ReferenceList = response?.CatalogProductOfferingsResponse.ReferenceList;
-
   const refFlights = ReferenceList?.[0].Flight;
+
+  const CatalogProductOffering =
+    response?.CatalogProductOfferingsResponse.CatalogProductOfferings
+      .CatalogProductOffering;
 
   return (
     <div className="space-y-5">
       <div>
-        <h1>Trip Details</h1>
+        <h1 className="text-lg font-semibold mb-2">Trip Details</h1>
         <div className="flex items-center gap-5 overflow-x-auto">
           {[1, 2, 3, 4, 5, 6, 7].map(() => {
             return (
@@ -71,54 +74,78 @@ const FlightViewCard = () => {
       </div>
 
       <div className="w-full h-[1px] bg-gray-300"></div>
-      {refFlights?.map((flight: any) => {
-        return (
-          <div
-            key={nanoid()}
-            className="grid grid-cols-5 border border-gray-300 p-3 rounded-2xl *:flex *:flex-col *:justify-center"
-          >
-            <div className="col-span-1">
-              <Avatar>
-                <AvatarImage />
-              </Avatar>
-              <p className="text-[10px]">Biman Bangladesh Airlines</p>
-              <p className="text-[10px]">Flight no. {flight.number}</p>
-            </div>
-            <div className="col-span-1">
-              <h2 className="font-bold text-xs">{flight.Arrival.location}</h2>
-              <p className="text-[11px] text-gray-400">{flight.Arrival.time}</p>
-              <p className="text-[11px]">
-                {toReadableDate(flight.Arrival.date)}
-              </p>
-            </div>
-            <div className="col-span-1">
-              <h2 className="font-bold text-xs">{flight.Departure.location}</h2>
-              <p className="text-[11px] text-gray-400">
-                {flight.Departure.time}
-              </p>
-              <p className="text-[11px]">
-                {toReadableDate(flight.Departure.date)}
-              </p>
-            </div>
-            <div className="col-span-1">
-              <p className="text-[11px] text-gray-400">
-                {convertDuration(flight.duration)}
-              </p>
-              <h2 className="font-bold text-xs">one stop</h2>
-              <p className="text-[11px]">
-                Seats Left: <span className="text-primary-main">9</span>
-              </p>
-            </div>
-            <div className="col-span-1 items-center">
-              <h2 className="font-bold text-xs">{`${"currency"}-${"price"}`}</h2>
-              <Button className="text-black rounded-full">Book Now</Button>
-              <p className="text-[10px] text-gray-400">Refundable</p>
-            </div>
-          </div>
-        );
+      {CatalogProductOffering?.map((item: any) => {
+        return item?.ProductBrandOptions?.map((option: any) => {
+          let flightRefs = option.flightRefs;
+          let ProductBrandOffering = option.ProductBrandOffering;
+
+          return flightRefs.map((ref: any) => {
+            let targetFlight = refFlights.find(
+              (targetFlight: any) => targetFlight.id === ref
+            );
+
+            return ProductBrandOffering.map((offer: any) => {
+              let price = offer.Price;
+
+              return (
+                <OneWayCard
+                  key={nanoid()}
+                  flight={targetFlight}
+                  price={price}
+                />
+              );
+            });
+          });
+        });
       })}
+      {/* {refFlights?.map((flight: any) => {
+        return <OneWayCard key={nanoid()} flight={flight} />;
+      })} */}
     </div>
   );
 };
 
 export default FlightViewCard;
+
+interface OneWayCardTypes {
+  flight: any;
+  price: any;
+}
+const OneWayCard: React.FC<OneWayCardTypes> = ({ flight, price }) => {
+  return (
+    <div className="grid grid-cols-5 border border-gray-300 p-3 rounded-2xl *:flex *:flex-col *:justify-center">
+      <div className="col-span-1">
+        <Avatar>
+          <AvatarImage />
+        </Avatar>
+        <p className="text-[10px]">Biman Bangladesh Airlines</p>
+        <p className="text-[10px]">Flight no. {flight.number}</p>
+      </div>
+
+      <div className="col-span-1">
+        <h2 className="font-bold text-xs">{flight.Departure.location}</h2>
+        <p className="text-[11px] text-gray-400">{flight.Departure.time}</p>
+        <p className="text-[11px]">{toReadableDate(flight.Departure.date)}</p>
+      </div>
+      <div className="col-span-1">
+        <h2 className="font-bold text-xs">{flight.Arrival.location}</h2>
+        <p className="text-[11px] text-gray-400">{flight.Arrival.time}</p>
+        <p className="text-[11px]">{toReadableDate(flight.Arrival.date)}</p>
+      </div>
+      <div className="col-span-1">
+        <p className="text-[11px] text-gray-400">
+          {convertDuration(flight.duration)}
+        </p>
+        <h2 className="font-bold text-xs">one stop</h2>
+        <p className="text-[11px]">
+          Seats Left: <span className="text-primary-main">9</span>
+        </p>
+      </div>
+      <div className="col-span-1 items-center">
+        <h2 className="font-bold text-xs mb-1">{`${price.CurrencyCode.value}-${price.TotalPrice}`}</h2>
+        <Button className="text-black rounded-full">Book Now</Button>
+        <p className="text-[10px] text-gray-400">Refundable</p>
+      </div>
+    </div>
+  );
+};

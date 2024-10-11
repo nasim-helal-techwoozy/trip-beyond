@@ -6,7 +6,7 @@ const travelport = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: `Bearer ${Cookies.get("t_token")}`,
+    Authorization: `Bearer ${Cookies.get("tpAuthToken")}`,
     XAUTH_TRAVELPORT_ACCESSGROUP: process.env.NEXT_PUBLIC_ACCESS_GROUP,
   },
 });
@@ -14,8 +14,8 @@ const travelport = axios.create({
 // An interceptor to dynamically set the Authorization token and Travelport Access Group
 travelport.interceptors.request.use(
   (config) => {
-    if (Cookies.get("t_token")) {
-      config.headers.Authorization = `Bearer ${Cookies.get("t_token")}`;
+    if (Cookies.get("tpAuthToken")) {
+      config.headers.Authorization = `Bearer ${Cookies.get("tpAuthToken")}`;
     }
 
     if (process.env.NEXT_PUBLIC_ACCESS_GROUP) {

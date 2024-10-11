@@ -80,7 +80,7 @@ const FlightSearch: React.FC<PropsTypes> = ({
           PassengerCriteria: [
             {
               "@type": "PassengerCriteria",
-              number: 1,
+              number: 2,
               passengerTypeCode: "ADT",
             },
           ],

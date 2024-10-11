@@ -7,7 +7,6 @@ import Logo from "../../common/Logo";
 import KeepModal from "../../keep-react/KeepModal";
 import { UserSignin } from "./UserSignin";
 import UserSignup from "./UserSignup";
-import { getToken } from "@/utils/axios/authTravelPort";
 
 const Header = () => {
   const router = useRouter();
@@ -47,10 +46,7 @@ const Header = () => {
           Agent Login
         </Button>
 
-        <button
-          onClick={async () => await getToken()}
-          className="bg-primary-main size-8 text-secondary-main flex items-center justify-center rounded-full"
-        >
+        <button className="bg-primary-main size-8 text-secondary-main flex items-center justify-center rounded-full">
           <IconHomePage.Phone size={20} />
         </button>
 

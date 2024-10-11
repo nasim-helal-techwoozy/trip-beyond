@@ -48,8 +48,10 @@ export const searchOneWayFlightModel: SearchModel = {
 
       actions.setResponse(res.data); // Set response data
     } catch (err: any) {
+      console.log(err);
       actions.setError(
-        err.response?.data?.message || "An error occurred while searching"
+        err.response?.data?.message ||
+          "An error occurred while searchingxdsfsdf"
       );
     } finally {
       actions.setIsLoading(false);
