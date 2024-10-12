@@ -4,15 +4,15 @@ import {
   SidebarDropdownList,
   SidebarItem,
 } from "keep-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CaretDown, Checks, Plus, Users } from "phosphor-react";
-import React from "react";
 
 const Passengers = () => {
+  const router = useRouter();
   return (
-    <SidebarItem dropdown>
+    <SidebarItem onClick={() => router.push("/search")} dropdown>
       <SidebarDropdown>
-        <SidebarCollapse>
+        <SidebarCollapse className="text-black font-semibold">
           <div className="flex items-center gap-3">
             <span>
               <Users size={25} />
@@ -25,17 +25,19 @@ const Passengers = () => {
         </SidebarCollapse>
 
         <SidebarDropdownList>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/passengers/add-passenger")}
+            className="text-black font-semibold"
+          >
             <Plus size={25} />
-            <Link href="/passengers/add-passenger">
-              <span>Add Passenger</span>
-            </Link>
+            Add Passenger
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/passengers/quick-passenger")}
+            className="text-black font-semibold"
+          >
             <Checks size={25} />
-            <Link href="/passengers/quick-passenger">
-              <span>Quick Passenger</span>
-            </Link>
+            Quick Passenger
           </SidebarItem>
         </SidebarDropdownList>
       </SidebarDropdown>
