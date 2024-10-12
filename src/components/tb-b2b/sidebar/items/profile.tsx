@@ -26,14 +26,14 @@ const Profile = () => {
 
         <SidebarDropdownList>
           <SidebarItem
-            onClick={() => router.push("/profile")}
+            onClick={() => router.push("/profile/user")}
             className="text-black font-semibold"
           >
             <User size={25} />
             User
           </SidebarItem>
           <SidebarItem
-            onClick={() => router.push("/profile/update")}
+            onClick={() => router.push("/profile/company")}
             className="text-black font-semibold"
           >
             <HourglassMedium size={25} />

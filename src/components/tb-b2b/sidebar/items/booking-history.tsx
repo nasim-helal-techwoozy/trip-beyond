@@ -134,32 +134,32 @@ const BookingHistory = () => {
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
-          <SidebarItem className="text-black font-semibold">
-            <HourglassMedium
-              onClick={() => router.push("/booking-history/hotel")}
-              size={25}
-            />
+          <SidebarItem
+            onClick={() => router.push("/booking-history/hotel")}
+            className="text-black font-semibold"
+          >
+            <HourglassMedium size={25} />
             Hotel
           </SidebarItem>
-          <SidebarItem className="text-black font-semibold">
-            <CreditCard
-              onClick={() => router.push("/booking-history/visa")}
-              size={25}
-            />
+          <SidebarItem
+            onClick={() => router.push("/booking-history/visa")}
+            className="text-black font-semibold"
+          >
+            <CreditCard size={25} />
             Visa
           </SidebarItem>
-          <SidebarItem className="text-black font-semibold">
-            <MapPin
-              onClick={() => router.push("/booking-history/tour-package")}
-              size={25}
-            />
+          <SidebarItem
+            onClick={() => router.push("/booking-history/tour-package")}
+            className="text-black font-semibold"
+          >
+            <MapPin size={25} />
             Tour Package
           </SidebarItem>
-          <SidebarItem className="text-black font-semibold">
-            <Users
-              onClick={() => router.push("/booking-history/group-tour")}
-              size={25}
-            />
+          <SidebarItem
+            onClick={() => router.push("/booking-history/group-tour")}
+            className="text-black font-semibold"
+          >
+            <Users size={25} />
             Group tour
           </SidebarItem>
         </SidebarDropdownList>
