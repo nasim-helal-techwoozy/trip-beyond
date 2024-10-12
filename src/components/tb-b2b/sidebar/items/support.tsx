@@ -5,7 +5,7 @@ import {
   SidebarItem,
 } from "keep-react";
 import { CaretDown, Headset, Phone, Question, Ticket } from "phosphor-react";
-
+import Link from "next/link";
 const Support = () => {
   return (
     <SidebarItem dropdown>
@@ -25,7 +25,9 @@ const Support = () => {
         <SidebarDropdownList>
           <SidebarItem>
             <Phone size={25} />
-            Contact
+            <Link href="/support/contact">
+              <span>Contact</span>
+            </Link>
           </SidebarItem>
           <SidebarItem>
             <Question size={25} />
