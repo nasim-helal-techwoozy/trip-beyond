@@ -7,6 +7,7 @@ const Sponsor = (props: Props) => {
     <div className="h-32 bg-gray-200 rounded-lg flex items-center justify-center">
       <span className="text-gray-600"></span>
     </div>
+    
     <div className="h-32 bg-gray-200 rounded-lg flex items-center justify-center">
       <span className="text-gray-600">Ad Space</span>
     </div>
