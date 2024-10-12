@@ -1,13 +1,12 @@
 "use client";
 import { defaultAirports } from "@/assets/data/airports";
 import { IconSearchEngine } from "@/interfaces/icons";
+import formatDate from "@/utils/formatDate";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { Button } from "keep-react";
 import { useMemo, useState } from "react";
 import FlightInput from "./FlightInput";
 import PickDate from "./PickDate";
-import { Spinner } from "keep-react";
-import formatDate from "@/utils/formatDate";
 
 interface PropsTypes {
   hasReturnDate?: boolean;
@@ -22,7 +21,6 @@ const FlightSearch: React.FC<PropsTypes> = ({
     useStoreActions((actions: any) => actions.flightSearch);
 
   const { oneWaySearch } = useStoreActions((actions: any) => actions.oneWay);
-  const { isLoading } = useStoreState((state: any) => state.oneWay);
 
   const { origin, destination, departureDate, returnDate } = useStoreState(
     (state: any) => state.flightSearch
@@ -112,7 +110,7 @@ const FlightSearch: React.FC<PropsTypes> = ({
   };
 
   return (
-    <div className="space-y-5 md:space-y-0 md:flex  items-center gap-5">
+    <div className="space-y-5 md:space-y-0 md:flex items-center gap-5 ">
       <div className="relative flex-1 md:flex md:flex-row md:items-center">
         <FlightInput
           className="flex-1"
@@ -176,7 +174,7 @@ const FlightSearch: React.FC<PropsTypes> = ({
           onClick={handleFlightSearch}
           className="ml-auto flex items-center gap-2"
         >
-          {isLoading && <Spinner color="warning" size="sm" />}search
+          search
         </Button>
       )}
     </div>
