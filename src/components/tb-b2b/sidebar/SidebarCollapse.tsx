@@ -24,47 +24,47 @@ const SidebarCollapse = ({ className }: any) => {
     >
       <SidebarBody className="space-y-4">
         <SidebarList className="space-y-1 text-secondary-main">
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <MagnifyingGlass size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <Share size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <ClockCounterClockwise size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <Users size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <Percent size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <Headset size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <User size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <ClockCounterClockwise size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <Gear size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <Stack size={25} />
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem className="text-black font-semibold">
             <CreditCard size={25} />
           </SidebarItem>
         </SidebarList>

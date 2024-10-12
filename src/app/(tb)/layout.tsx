@@ -15,7 +15,7 @@ export default function DefaultLayout({
         <Header />
       </div>
 
-      <div className="relative group col-span-1 z-10 min-w-[100px] hover:min-w-[280px] duration-300 overflow-x-hidden overflow-y-auto min-h-full shadow-xl">
+      <div className="relative group col-span-1 z-10 min-w-[100px] hover:min-w-[280px] duration-300 overflow-x-hidden overflow-y-auto min-h-full shadow-xl bg-white">
         <SidebarCollapse className="group-hover:hidden duration-75" />
         <SidebarExpand className="hidden group-hover:block duration-75" />
       </div>

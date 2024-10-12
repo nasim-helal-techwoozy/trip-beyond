@@ -4,14 +4,15 @@ import {
   SidebarDropdownList,
   SidebarItem,
 } from "keep-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CaretDown, ClipboardText, Percent } from "phosphor-react";
 
 const PartialPayment = () => {
+  const router = useRouter();
   return (
     <SidebarItem dropdown>
       <SidebarDropdown>
-        <SidebarCollapse>
+        <SidebarCollapse className="text-black font-semibold">
           <div className="flex items-center gap-3">
             <span>
               <Percent size={25} />
@@ -24,17 +25,19 @@ const PartialPayment = () => {
         </SidebarCollapse>
 
         <SidebarDropdownList>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/partial-payment/due-list")}
+            className="text-black font-semibold"
+          >
             <ClipboardText size={25} />
-            <Link href="/partial-payment/due-list">
-              <span>Due List</span>
-            </Link>
+            Due List
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/partial-payment/paid-list")}
+            className="text-black font-semibold"
+          >
             <ClipboardText size={25} />
-            <Link href="/partial-payment/paid-list">
-              <span>Paid List</span>
-            </Link>
+            Paid List
           </SidebarItem>
         </SidebarDropdownList>
       </SidebarDropdown>

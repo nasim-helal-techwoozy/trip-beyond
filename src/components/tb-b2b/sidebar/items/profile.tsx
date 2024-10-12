@@ -4,14 +4,15 @@ import {
   SidebarDropdownList,
   SidebarItem,
 } from "keep-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CaretDown, HourglassMedium, Lock, User } from "phosphor-react";
 
 const Profile = () => {
+  const router = useRouter();
   return (
     <SidebarItem dropdown>
       <SidebarDropdown>
-        <SidebarCollapse>
+        <SidebarCollapse className="text-black font-semibold">
           <div className="flex items-center gap-3">
             <span>
               <User size={25} />
@@ -24,23 +25,26 @@ const Profile = () => {
         </SidebarCollapse>
 
         <SidebarDropdownList>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/profile/user")}
+            className="text-black font-semibold"
+          >
             <User size={25} />
-            <Link href="/profile">
-              <span>User</span>
-            </Link>
+            User
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/profile/company")}
+            className="text-black font-semibold"
+          >
             <HourglassMedium size={25} />
-            <Link href="/profile/update">
-              <span>Company</span>
-            </Link>
+            Company
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/profile/auth")}
+            className="text-black font-semibold"
+          >
             <Lock size={25} />
-            <Link href="/profile/auth">
-              <span>Authentication</span>
-            </Link>
+            Authentication
           </SidebarItem>
         </SidebarDropdownList>
       </SidebarDropdown>

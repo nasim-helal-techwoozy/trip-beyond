@@ -4,7 +4,7 @@ import {
   SidebarDropdownList,
   SidebarItem,
 } from "keep-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Airplane,
   ArrowClockwise,
@@ -17,13 +17,13 @@ import {
   Users,
   X,
 } from "phosphor-react";
-import React from "react";
 
 const BookingHistory = () => {
+  const router = useRouter();
   return (
     <SidebarItem dropdown>
       <SidebarDropdown>
-        <SidebarCollapse>
+        <SidebarCollapse className="text-black font-semibold">
           <div className="flex items-center gap-3">
             <ClockCounterClockwise size={25} />
             Booking History
@@ -36,7 +36,7 @@ const BookingHistory = () => {
         <SidebarDropdownList>
           <SidebarItem dropdown>
             <SidebarDropdown>
-              <SidebarCollapse>
+              <SidebarCollapse className="text-black font-semibold">
                 <div className="flex items-center gap-3">
                   <Airplane size={25} />
                   Flight
@@ -46,27 +46,32 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">
-                  <Link href="/booking-history/flight/on-hold">
-                    <span> On-Hold</span>
-                  </Link>
+                <SidebarItem
+                  onClick={() => router.push("/booking-history/flight/on-hold")}
+                  className="justify-start text-black font-semibold"
+                >
+                  On-Hold
                 </SidebarItem>
-                <SidebarItem className="justify-start">
-                  <Link href="/booking-history/flight/issued">
-                    <span>Issued</span>
-                  </Link>
+                <SidebarItem
+                  onClick={() => router.push("/booking-history/flight/issued")}
+                  className="justify-start text-black font-semibold"
+                >
+                  Issued
                 </SidebarItem>
-                <SidebarItem className="justify-start">
-                  <Link href="/booking-history/flight/canceled-booking">
-                    <span>Canceled Booking</span>
-                  </Link>
+                <SidebarItem
+                  onClick={() =>
+                    router.push("/booking-history/flight/canceled-booking")
+                  }
+                  className="justify-start text-black font-semibold"
+                >
+                  Canceled Booking
                 </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
           <SidebarItem dropdown>
             <SidebarDropdown>
-              <SidebarCollapse>
+              <SidebarCollapse className="text-black font-semibold">
                 <div className="flex items-center gap-3">
                   <X size={25} />
                   Void
@@ -76,17 +81,18 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">
-                  <Link href="/booking-history/void/history">
-                    <span>History</span>
-                  </Link>
+                <SidebarItem
+                  onClick={() => router.push("/booking-history/void/history")}
+                  className="justify-start text-black font-semibold"
+                >
+                  History
                 </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
           <SidebarItem dropdown>
             <SidebarDropdown>
-              <SidebarCollapse>
+              <SidebarCollapse className="text-black font-semibold">
                 <div className="flex items-center gap-3">
                   <ArrowUUpLeft size={25} />
                   Refund
@@ -96,17 +102,18 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">
-                  <Link href="/booking-history/refund/history">
-                    <span>History</span>
-                  </Link>
+                <SidebarItem
+                  onClick={() => router.push("/booking-history/refund/history")}
+                  className="justify-start text-black font-semibold"
+                >
+                  History
                 </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
           <SidebarItem dropdown>
             <SidebarDropdown>
-              <SidebarCollapse>
+              <SidebarCollapse className="text-black font-semibold">
                 <div className="flex items-center gap-3">
                   <ArrowClockwise size={25} />
                   Reissue
@@ -116,37 +123,44 @@ const BookingHistory = () => {
                 </span>
               </SidebarCollapse>
               <SidebarDropdownList>
-                <SidebarItem className="justify-start">
-                  <Link href="/booking-history/reissue/history">
-                    <span>History</span>
-                  </Link>
+                <SidebarItem
+                  onClick={() =>
+                    router.push("/booking-history/reissue/history")
+                  }
+                  className="justify-start text-black font-semibold"
+                >
+                  History
                 </SidebarItem>
               </SidebarDropdownList>
             </SidebarDropdown>
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/booking-history/hotel")}
+            className="text-black font-semibold"
+          >
             <HourglassMedium size={25} />
-            <Link href="/booking-history/hotel">
-              <span>Hotel</span>
-            </Link>
+            Hotel
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/booking-history/visa")}
+            className="text-black font-semibold"
+          >
             <CreditCard size={25} />
-            <Link href="/booking-history/visa">
-              <span>Visa</span>
-            </Link>
+            Visa
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/booking-history/tour-package")}
+            className="text-black font-semibold"
+          >
             <MapPin size={25} />
-            <Link href="/booking-history/tour-package">
-              <span>Tour Package</span>
-            </Link>
+            Tour Package
           </SidebarItem>
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/booking-history/group-tour")}
+            className="text-black font-semibold"
+          >
             <Users size={25} />
-            <Link href="/booking-history/group-tour">
-              <span>Group tour</span>
-            </Link>
+            Group tour
           </SidebarItem>
         </SidebarDropdownList>
       </SidebarDropdown>

@@ -1,6 +1,7 @@
 "use client";
 import { Sidebar, SidebarBody, SidebarItem, SidebarList } from "keep-react";
 import { cn } from "keep-react/utils";
+import { useRouter } from "next/navigation";
 import {
   ClockCounterClockwise,
   CreditCard,
@@ -13,9 +14,9 @@ import Passengers from "./items/passengers";
 import Profile from "./items/profile";
 import Settings from "./items/settings";
 import Support from "./items/support";
-import Link from "next/link";
 
 const SidebarExpand = ({ className }: any) => {
+  const router = useRouter();
   return (
     <Sidebar
       className={cn(
@@ -25,37 +26,42 @@ const SidebarExpand = ({ className }: any) => {
     >
       <SidebarBody>
         <SidebarList className="space-y-0.5">
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/search")}
+            className="text-black font-semibold"
+          >
             <MagnifyingGlass size={25} />
-            <Link href="/search">
-              <span>Search</span>
-            </Link>
+            Search
           </SidebarItem>
 
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/share-pnr")}
+            className="text-black font-semibold"
+          >
             <Share size={25} />
-            <Link href="/share-pnr">
-              <span>Share PNR</span>
-            </Link>
+            Share PNR
           </SidebarItem>
 
           <BookingHistory />
 
           <Passengers />
 
-          <SidebarItem>
+          <SidebarItem
+            onClick={() => router.push("/payment/submit-payment-request")}
+            className="text-black font-semibold"
+          >
             <CreditCard size={25} />
-            <Link href="/payment/submit-payment-request">
-              <span> Payment</span>
-            </Link>
+            Payment
           </SidebarItem>
 
           <PartialPayment />
-          <SidebarItem>
+
+          <SidebarItem
+            onClick={() => router.push("/transaction-history")}
+            className="text-black font-semibold"
+          >
             <ClockCounterClockwise size={25} />
-            <Link href="/transaction-history">
-              <span>Transaction history</span>
-            </Link>
+            Transaction history
           </SidebarItem>
 
           <Profile />
