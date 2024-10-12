@@ -6,7 +6,7 @@ import {
 } from "keep-react";
 import { useRouter } from "next/navigation";
 import { CaretDown, Headset, Phone, Question, Ticket } from "phosphor-react";
-
+import Link from "next/link";
 const Support = () => {
   const router = useRouter();
   return (
@@ -30,7 +30,9 @@ const Support = () => {
             className="text-black font-semibold"
           >
             <Phone size={25} />
-            Contact
+            <Link href="/support/contact">
+              <span>Contact</span>
+            </Link>
           </SidebarItem>
           <SidebarItem
             onClick={() => router.push("/support/faq")}
