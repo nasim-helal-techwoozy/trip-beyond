@@ -8,6 +8,7 @@ import Footer from "@/components/root/footer/Footer";
 import Header from "@/components/root/landing-header/Header";
 import { Button } from "keep-react";
 import SearchResult from "@/components/root/search-result/SearchResult";
+import { BookingProcedure } from "@/components/root/booking-procedure/BookingProcedure";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
 
       <Footer />
       <SearchResult/>
+      <BookingProcedure/>
     </section>
   );
 }

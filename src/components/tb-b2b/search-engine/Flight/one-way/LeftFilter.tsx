@@ -24,7 +24,6 @@ const LeftFilter = () => {
             <FilterContainer titleLeft="Arrival time Point 2">
                 <FilterCard />
             </FilterContainer>
-
         </aside>
     )
 }

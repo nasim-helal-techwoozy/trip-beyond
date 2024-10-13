@@ -9,7 +9,7 @@ const Loader: React.FC<PropsTypes> = ({ className }) => {
   return (
     <div
       className={cn(
-        "object-cover z-50 shadow-lg rounded-md overflow-hidden bg-red-400",
+        "object-cover z-50 shadow-lg rounded-md overflow-hidden",
         className
       )}
     >

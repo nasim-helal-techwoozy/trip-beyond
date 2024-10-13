@@ -9,10 +9,10 @@ interface CardData {
 }
 
 const Elements: CardData[] = [
-    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day /> },
-    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day /> },
-    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day /> },
-    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day /> }
+    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day className='text-primary-main'/> },
+    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day className='text-secondary-main'/> },
+    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day className='text-primary-main'/> },
+    { title: "Early Morning", time: "06AM-8AM", icon: <IconSearchEngine.Day className='text-primary-main'/> }
 ]
 
 
@@ -21,9 +21,9 @@ const FilterCard = () => {
         <div className="flex justify-center items-center px-2 py-5">
             <div className="grid grid-cols-2 gap-2">
                 {Elements.map(card => (
-                    <div key={nanoid()} className="flex flex-row bg-[#EFEFEF] p-2 text-black rounded-lg shadow-md">
+                    <div key={nanoid()} className="flex flex-row bg-gray-200 p-2 text-black rounded-lg shadow-lg">
                         {/* Text Column */}
-                        <div className="text-left text-[8px]">
+                        <div className="text-left text-[10px]">
                             <span>{card.title}</span>
                             <span><br /> {card.time}</span>
                         </div>

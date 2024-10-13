@@ -10,12 +10,13 @@ import UserSignup from "./UserSignup";
 import { cn } from "keep-react/utils";
 
 interface PropTypes{
+  hasSearch?:boolean;
   hasBanner?:boolean;
   tabTextColor?:boolean;
 }
 
 
-const Header:React.FC<PropTypes> = ({tabTextColor,hasBanner=true}) => {
+const Header:React.FC<PropTypes> = ({tabTextColor,hasBanner=true,hasSearch=true}) => {
   const router = useRouter();
   return (
     <div className={cn("flex flex-col gap-6", {
@@ -63,7 +64,8 @@ const Header:React.FC<PropTypes> = ({tabTextColor,hasBanner=true}) => {
 
         {/* <MobileMenu /> */}
       </header>
-      <Search tabTextColor={tabTextColor}/>
+      {hasSearch &&  <Search tabTextColor={tabTextColor}/>}
+     
     </div>
   );
 };

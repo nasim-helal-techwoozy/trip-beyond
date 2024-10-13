@@ -19,7 +19,7 @@ import { DotsThreeOutlineVertical, Funnel, Plus } from "phosphor-react";
 interface PropsTypes {
   tableTitle: string;
   headerItems: string[];
-  data: any;
+  data?: any;
 }
 export const KeepTable: React.FC<PropsTypes> = ({
   tableTitle,
