@@ -9,6 +9,7 @@ import GroupRequest from "./GroupRequest/GroupRequest";
 import Holiday from "./Holiday/Holiday";
 import Hotels from "./Hotels/Hotels";
 import Visa from "./Visa/Visa";
+import { cn } from "keep-react/utils";
 
 type MenuItem = {
   label: string;
@@ -24,13 +25,23 @@ const tabs: MenuItem[] = [
   { label: "Group Request", value: "group-request", icon: <FaUserGroup /> },
 ];
 
-const Search: React.FC = () => {
+interface PropTypes{
+  hasBanner?:boolean;
+  tabTextColor?:boolean;
+}
+
+
+const Search: React.FC<PropTypes> = ({hasBanner,tabTextColor=false}) => {
   return (
-    <section className="flex flex-col items-center justify-center seBanner p-1 lg:p-10">
+    <section className={cn("flex flex-col items-center justify-center p-1 lg:p-10",{
+      "seBanner":hasBanner
+    })}>
       <Tabs defaultActive="flights" className="mx-auto w-full">
         <TabList className="flex items-center justify-center">
           {tabs.map((tab) => (
-            <TabItem value={tab.value} key={nanoid()} className="text-white">
+            <TabItem value={tab.value} key={nanoid()} className={cn("text-white",{
+              "text-black":tabTextColor
+            })}>
               {tab.icon}
               {tab.label}
             </TabItem>

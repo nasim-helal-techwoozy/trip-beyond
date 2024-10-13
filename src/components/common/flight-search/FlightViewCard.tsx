@@ -35,8 +35,8 @@ const FlightViewCard = () => {
                 key={nanoid()}
                 className="size-28 flex flex-col items-center justify-center space-y-2 border border-gray-400 rounded-2xl"
               >
-                <p className="text-sm text-gray-500"> wed, Sept 22</p>
-                <h2 className="text-gray-500">$265</h2>
+                <p className="text-sm text-gray-700"> wed, Sept 22</p>
+                <h2 className="text-gray-700">$265</h2>
               </div>
             );
           })}
@@ -44,7 +44,7 @@ const FlightViewCard = () => {
       </div>
 
       <div className="flex items-center">
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-gray-700">
           Prices displayed include taxes and may change based on availability.
           You can review any additional fees before check out. Prices are not
           final until you complete your purchase.

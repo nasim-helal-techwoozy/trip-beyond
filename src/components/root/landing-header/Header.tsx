@@ -7,13 +7,24 @@ import Logo from "../../common/Logo";
 import KeepModal from "../../keep-react/KeepModal";
 import { UserSignin } from "./UserSignin";
 import UserSignup from "./UserSignup";
+import { cn } from "keep-react/utils";
 
-const Header = () => {
+interface PropTypes{
+  hasBanner?:boolean;
+  tabTextColor?:boolean;
+}
+
+
+const Header:React.FC<PropTypes> = ({tabTextColor,hasBanner=true}) => {
   const router = useRouter();
   return (
-    <div className="flex flex-col seBanner gap-6">
+    <div className={cn("flex flex-col gap-6", {
+      "seBanner":hasBanner
+    })}>
       <header
-        className={`px-10 sticky left-0 top-0 z-10 w-full flex items-center gap-3 py-4`}
+        className={cn(`px-10 sticky left-0 top-0 z-10 w-full flex items-center gap-3 py-4`,{
+          "bg-secondary-main":!hasBanner
+        })}
       >
         <Logo className="mr-auto" />
 
@@ -52,7 +63,7 @@ const Header = () => {
 
         {/* <MobileMenu /> */}
       </header>
-      <Search />
+      <Search tabTextColor={tabTextColor}/>
     </div>
   );
 };
