@@ -1,12 +1,13 @@
 import KeepDescription from "@/components/keep-react/KeepDescription";
-import Deals from "@/components/root/content/Deals";
-import Destination from "@/components/root/content/Destination";
-import Exclusive from "@/components/root/content/Exclusive";
-import Featured from "@/components/root/content/Featured";
-import QrCodeBanner from "@/components/root/content/QrCodeBanner";
+import Deals from "@/components/root/landing-content/Deals";
+import Destination from "@/components/root/landing-content/Destination";
+import Exclusive from "@/components/root/landing-content/Exclusive";
+import Featured from "@/components/root/landing-content/Featured";
+import QrCodeBanner from "@/components/root/landing-content/QrCodeBanner";
 import Footer from "@/components/root/footer/Footer";
 import Header from "@/components/root/landing-header/Header";
 import { Button } from "keep-react";
+import SearchResult from "@/components/root/search-result/SearchResult";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <SearchResult/>
     </section>
   );
 }

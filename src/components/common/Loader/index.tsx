@@ -9,11 +9,11 @@ const Loader: React.FC<PropsTypes> = ({ className }) => {
   return (
     <div
       className={cn(
-        "object-cover z-50 shadow-lg rounded-md overflow-hidden",
+        "object-cover z-50 shadow-lg rounded-md overflow-hidden bg-red-400",
         className
       )}
     >
-      <video className="h-full w-full" autoPlay loop muted playsInline>
+      <video className="h-fit w-fit" autoPlay loop muted playsInline>
         <source src="/loader.mp4" type="video/mp4" />
       </video>
     </div>
