@@ -8,7 +8,7 @@ import Footer from "../footer/Footer";
 const SearchResult = () => {
   return (
     <>
-      <Header hasBanner={false} tabTextColor={true} />
+      <Header hasBanner={false} hasSearch tabTextColor={true} />
       <section className="md:grid md:grid-cols-12 gap-5 px-12">
         <div className="col-span-3">
           <LeftFilter />
