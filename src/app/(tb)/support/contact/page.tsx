@@ -1,9 +1,7 @@
 import Support from "@/components/tb-b2b/support/Support";
 
-type Props = {}
-
-const page = (props: Props) => {
-  return <Support/>
+const page = () => {
+  return <Support />;
 };
 
 export default page;
