@@ -1,6 +1,6 @@
 "use client";
 import { KeepTable } from "@/components/keep-react/KeepTable";
-import React, { useState } from "react";
+import React from "react";
 
 // Define the interface for the table data structure
 interface BookingDataInterface {
@@ -112,6 +112,7 @@ const Table: React.FC<TableProps> = ({ type }) => {
       <KeepTable
         tableTitle={`${type.charAt(0).toUpperCase() + type.slice(1)} Bookings`} // Dynamic title
         headerItems={fields} // Field labels
+        data={data}
       />
     </div>
   );
