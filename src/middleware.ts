@@ -1,20 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { authTp } from "./utils/axios/authTp";
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
-  /*======Start of================AUTHENTICATION TO TRAVELPORT API RESOURCE================= */
-  const tpAuthToken = request.cookies.get("tpAuthToken");
-  if (!tpAuthToken) {
-    const { access_token, expires_in } = await authTp();
-    response.cookies.set("tpAuthToken", access_token, {
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: expires_in,
-    });
-  }
-  /*======End of================AUTHENTICATION TO TRAVELPORT API RESOURCE================= */
+  // You can add any design or logging logic here if needed, e.g., logging the request URL
+  console.log("Middleware executed for URL:", request.url);
+
+  // Optionally manipulate the response headers or perform other simple actions
+  response.headers.set("X-Custom-Header", "DesignMode");
 
   return response;
 }
