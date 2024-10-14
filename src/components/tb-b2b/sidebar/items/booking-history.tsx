@@ -82,7 +82,7 @@ const BookingHistory = () => {
               </SidebarCollapse>
               <SidebarDropdownList>
                 <SidebarItem
-                  onClick={() => router.push("/booking-history/void/history")}
+                  onClick={() => router.push("/booking-history/void-history")}
                   className="justify-start text-black font-semibold"
                 >
                   History
@@ -103,7 +103,7 @@ const BookingHistory = () => {
               </SidebarCollapse>
               <SidebarDropdownList>
                 <SidebarItem
-                  onClick={() => router.push("/booking-history/refund/history")}
+                  onClick={() => router.push("/booking-history/refund-history")}
                   className="justify-start text-black font-semibold"
                 >
                   History
@@ -125,7 +125,7 @@ const BookingHistory = () => {
               <SidebarDropdownList>
                 <SidebarItem
                   onClick={() =>
-                    router.push("/booking-history/reissue/history")
+                    router.push("/booking-history/reissue-history")
                   }
                   className="justify-start text-black font-semibold"
                 >
